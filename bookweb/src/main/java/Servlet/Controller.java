@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import Bean.ArticleBean;
 import DAO.ArticleDAO;
+import DAO.ArticleDAOInterface;
 
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
@@ -66,7 +67,7 @@ public class Controller extends HttpServlet {
 
 		String article_title = (String) request.getParameter("article_title");
 		String article_content = (String) request.getParameter("article_content");
-		ArticleDAO dao = new ArticleDAO(conn);
+		ArticleDAOInterface dao = new ArticleDAO(conn);
 		dao.insertArticle(new ArticleBean(article_title, article_content));
 		response.sendRedirect("insertsuccess.jsp");
 	}
@@ -78,7 +79,7 @@ public class Controller extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("ID"));
 		String article_title = (String) request.getParameter("article_title");
 		String article_content = (String) request.getParameter("article_content");
-		ArticleDAO dao = new ArticleDAO(conn);
+		ArticleDAOInterface dao = new ArticleDAO(conn);
 		dao.editArticle(new ArticleBean(article_title, article_content), id);
 		response.sendRedirect("editsuccess.jsp");
 	}
@@ -88,7 +89,7 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 
 		int id = Integer.parseInt(request.getParameter("sendID"));
-		ArticleDAO dao = new ArticleDAO(conn);
+		ArticleDAOInterface dao = new ArticleDAO(conn);
 		dao.deleteArticle(id);
 		response.sendRedirect("deletesuccess.jsp");
 	}

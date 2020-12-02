@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import Bean.ArticleBean;
 
-public class ArticleDAO {
+public class ArticleDAO implements ArticleDAOInterface {
 
 	private Connection conn;
 
@@ -14,6 +14,7 @@ public class ArticleDAO {
 	public ArticleDAO() {}
 
 	//新增貼文DAO
+	@Override
 	public boolean insertArticle(ArticleBean articleData) {
 
 		String sql = "insert into NOVEL_ARTICLE values(?,?)";
@@ -34,6 +35,7 @@ public class ArticleDAO {
 	}
 
 	//修改貼文DAO
+	@Override
 	public boolean editArticle(ArticleBean articleData, int id) {
 
 		String sql = "update NOVEL_ARTICLE set Title=?,Content=? where ID=?";
@@ -55,6 +57,7 @@ public class ArticleDAO {
 	}
 
 	//刪除貼文DAO
+	@Override
 	public boolean deleteArticle(int id) {
 
 		String sql = "delete from NOVEL_ARTICLE  where ID=?";
