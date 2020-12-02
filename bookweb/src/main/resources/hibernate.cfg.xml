@@ -10,7 +10,7 @@
 	<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
 	<property name="connection.url">jdbc:sqlserver://10.31.25.125:1433;DatabaseName=BookDB</property>
 	<property name="connection.username">book</property>
-	<property name="connection.password">QAQ</property>		
+	<property name="connection.password">qaq</property>		
    
      
     <!-- 2. 其他與資料存取有關的設定 -->
@@ -30,7 +30,7 @@
 	<property name="connection_pool_size">8</property>
 	
 	<!-- 3. 宣告程式使用的Mapping檔 ，每個永續類別都需要定義一個Mapping檔	-->
-	<mapping class=""></mapping>
+	<mapping class="Bean.ArticleBean"></mapping>
 	
 	</session-factory>
 </hibernate-configuration>
