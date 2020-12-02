@@ -134,26 +134,26 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 				<div class="col-md-4">
 					<div class="card mb-4 shadow-sm "  >
 					<svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-						<image xlink:href="<%=reportData.getBk_Pic() %>" width="100%" height="100%"/>
+						<image xlink:href="<%=reportData.getBook().getBK_Pic() %>" width="100%" height="100%"/>
 					</svg>
 					<div class="card-body">
-						<p><%=reportData.getBk_Name()%><p>
-						<p class="card-text">評分：<%=reportData.getBr_score() %></p>
-						<input type="hidden" id = "<%=reportData.getBr_ID() %>edit_pic" name="<%=reportData.getBr_ID() %>BkPic" value="<%=reportData.getBk_Pic() %>">
-						<input type="hidden" id = "<%=reportData.getBr_ID() %>edit_BkName" name="<%=reportData.getBr_ID() %>BkName" value="<%=reportData.getBk_Name()%>">
-						<input type="hidden" id = "<%=reportData.getBr_ID() %>edit_MbID" name="<%=reportData.getBr_ID() %>MbID" value="<%=reportData.getMb_ID() %>">
-						<input type="hidden" id = "<%=reportData.getBr_ID() %>edit_BkID" name="<%=reportData.getBr_ID() %>BkID" value="<%=reportData.getBk_ID() %>">
-						<input type="hidden" id = "<%=reportData.getBr_ID() %>edit_BrContent" name="<%=reportData.getBr_ID() %>BrContent" value="<%=reportData.getBr_content() %>">
-						<input type="hidden" id = "<%=reportData.getBr_ID() %>edit_BkWriter" name="<%=reportData.getBr_ID() %>BkWriter" value="<%=reportData.getBk_Writer() %>">
-						<input type="hidden" id = "<%=reportData.getBr_ID() %>edit_BkPublish" name="<%=reportData.getBr_ID() %>BkPublish" value="<%=reportData.getBk_Publish() %>">
-						<input type="hidden" id = "<%=reportData.getBr_ID() %>edit_BrScore" name="<%=reportData.getBr_ID() %>BrScore" value="<%=reportData.getBr_score() %>">
+						<p><%=reportData.getBook().getBK_Name()%><p>
+						<p class="card-text">評分：<%=reportData.getBR_Score()%></p>
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_pic" name="<%=reportData.getBR_ID()%>BkPic" value="<%=reportData.getBook().getBK_Pic()%>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkName" name="<%=reportData.getBR_ID()%>BkName" value="<%=reportData.getBook().getBK_Name()%>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_MbID" name="<%=reportData.getBR_ID()%>MbID" value="<%=reportData.getMember().getMB_ID()%>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkID" name="<%=reportData.getBR_ID()%>BkID" value="<%=reportData.getBook().getBK_ID()%>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BrContent" name="<%=reportData.getBR_ID()%>BrContent" value="<%=reportData.getBR_Content()%>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkWriter" name="<%=reportData.getBR_ID()%>BkWriter" value="<%=reportData.getBook().getBK_Writer() %>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkPublish" name="<%=reportData.getBR_ID()%>BkPublish" value="<%=reportData.getBook().getBK_Publish() %>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BrScore" name="<%=reportData.getBR_ID()%>BrScore" value="<%=reportData.getBR_Score()%>">
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="btn-group">		
-								<!--<button type="submit" class="btn btn-sm btn-outline-secondary" name="viewBookReport" value="<%=reportData.getBr_ID() %>">View</button>-->
-								<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#editModal" id = "editFirst"  name = "editButtons" value = "<%=reportData.getBr_ID() %>" >Edit</button>
-								<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#deletModal" id = "deleteFirst"  name = "beleteButtons" value = "<%=reportData.getBr_ID() %>" >Delete</button>
+								<!--<button type="submit" class="btn btn-sm btn-outline-secondary" name="viewBookReport" value="<%=reportData.getBR_ID() %>">View</button>-->
+								<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#editModal" id = "editFirst"  name = "editButtons" value = "<%=reportData.getBR_ID()%>" >Edit</button>
+								<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#deletModal" id = "deleteFirst"  name = "beleteButtons" value = "<%=reportData.getBR_ID()%>" >Delete</button>
 							</div>
-							<small class="text-muted">創建日期：<br><%=reportData.getBr_dateTime() %></small>
+							<small class="text-muted">創建日期：<br><%=reportData.getBR_DateTime()%></small>
 						</div>
 					</div>
 					</div>

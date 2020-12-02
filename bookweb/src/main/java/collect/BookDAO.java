@@ -69,7 +69,7 @@ public static Connection getConnection(){
         	dep.setBK_Time(rs.getDate("BK_Time"));
         	dep.setBK_Pic(rs.getString("BK_Pic"));
         	dep.setBK_Content(rs.getString("BK_Content"));
-        	dep.setURL(rs.getString("URL"));
+        	//dep.setURL(rs.getString("URL"));
         	list.add(dep);
         }
   	  rs.close();
@@ -110,7 +110,6 @@ public static Connection getConnection(){
         	dep.setBK_Time(rs.getDate("BK_Time"));
         	dep.setBK_Pic(rs.getString("BK_Pic"));
         	dep.setBK_Content(rs.getString("BK_Content"));
-        	dep.setURL(rs.getString("URL"));
         }
         System.out.println(3);
   	  rs.close();   	
@@ -158,7 +157,7 @@ public static Connection getConnection(){
 	        	dep.setBK_Time(rs.getDate("BK_Time"));
 	        	dep.setBK_Pic(rs.getString("BK_Pic"));
 	        	dep.setBK_Content(rs.getString("BK_Content"));
-	        	dep.setURL(rs.getString("URL"));
+	        	//dep.setURL(rs.getString("URL"));
 	        	list2.add(dep);
 	        }
 
