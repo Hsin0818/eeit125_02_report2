@@ -1,13 +1,20 @@
 package memberbean;
 
-import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "MEMBERS")
+public class MemberBean {
 
-
-public class MemberBean implements Serializable {
-	private int MB_ID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer MB_ID;
 	private String MB_Account;
 	private String MB_Password;
 	private String MB_Sex;
@@ -17,16 +24,14 @@ public class MemberBean implements Serializable {
 	private String MB_Tel;
 	private String MB_Address;
 	private String MB_Date;
-	private int MB_Lv;
+	private Integer MB_Lv;
 	private String MB_type;
 
-	public MemberBean()
-	  {
-	  }
-	
-	public MemberBean(String MB_Account, String MB_Password, String MB_Sex, Date MB_Birthday,
-            String MB_Name, String MB_Mail, String MB_Tel, String MB_Address,String MB_Date,int MB_Lv, String MB_type)
-	{
+	public MemberBean() {
+	}
+
+	public MemberBean(String MB_Account, String MB_Password, String MB_Sex, Date MB_Birthday, String MB_Name,
+			String MB_Mail, String MB_Tel, String MB_Address, String MB_Date, Integer MB_Lv, String MB_type) {
 		this.MB_Account = MB_Account;
 		this.MB_Password = MB_Password;
 		this.MB_Sex = MB_Sex;
@@ -40,8 +45,12 @@ public class MemberBean implements Serializable {
 		this.MB_type = MB_type;
 	}
 
-	public MemberBean(String MB_Account) {
-		this.MB_Account=MB_Account;
+	public Integer getMB_ID() {
+		return MB_ID;
+	}
+
+	public void setMB_ID(Integer mB_ID) {
+		MB_ID = mB_ID;
 	}
 
 	public String getMB_Account() {
@@ -116,11 +125,11 @@ public class MemberBean implements Serializable {
 		MB_Date = mB_Date;
 	}
 
-	public int getMB_Lv() {
+	public Integer getMB_Lv() {
 		return MB_Lv;
 	}
 
-	public void setMB_Lv(int mB_Lv) {
+	public void setMB_Lv(Integer mB_Lv) {
 		MB_Lv = mB_Lv;
 	}
 
@@ -131,14 +140,36 @@ public class MemberBean implements Serializable {
 	public void setMB_type(String mB_type) {
 		MB_type = mB_type;
 	}
-	public int getMB_ID() {
-		return MB_ID;
-	}
 
-	public void setMB_ID(int mB_ID) {
-		MB_ID = mB_ID;
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("MemberBean [MB_ID=");
+		builder.append(MB_ID);
+		builder.append(", MB_Account=");
+		builder.append(MB_Account);
+		builder.append(", MB_Password=");
+		builder.append(MB_Password);
+		builder.append(", MB_Sex=");
+		builder.append(MB_Sex);
+		builder.append(", MB_Birthday=");
+		builder.append(MB_Birthday);
+		builder.append(", MB_Name=");
+		builder.append(MB_Name);
+		builder.append(", MB_Mail=");
+		builder.append(MB_Mail);
+		builder.append(", MB_Tel=");
+		builder.append(MB_Tel);
+		builder.append(", MB_Address=");
+		builder.append(MB_Address);
+		builder.append(", MB_Date=");
+		builder.append(MB_Date);
+		builder.append(", MB_Lv=");
+		builder.append(MB_Lv);
+		builder.append(", MB_type=");
+		builder.append(MB_type);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }
-
-	

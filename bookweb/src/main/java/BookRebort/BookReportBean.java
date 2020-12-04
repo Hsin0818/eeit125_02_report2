@@ -2,79 +2,118 @@ package BookRebort;
 
 import java.util.Date;
 
-public class BookReportBean{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-	private int br_ID;
-	private int mb_ID;
-	private int bk_ID;
-	private String bk_Name;
-	private String bk_Writer;
-	private String bk_Publish;
-	private String bk_Pic;
-	private int br_score;
-	private String br_content;
-	private Date br_dateTime;
+import book.bean.BookBean;
+import memberbean.MemberBean;
+
+@Entity
+@Table(name = "BOOK_REPORT")
+public class BookReportBean {
 	
-	public int getBr_ID() {
-		return br_ID;
-	}
-	public void setBr_ID(int br_ID) {
-		this.br_ID = br_ID;
-	}
-	public int getMb_ID() {
-		return mb_ID;
-	}
-	public void setMb_ID(int mb_ID) {
-		this.mb_ID = mb_ID;
-	}
-	public int getBk_ID() {
-		return bk_ID;
-	}
-	public void setBk_ID(int bk_ID) {
-		this.bk_ID = bk_ID;
-	}
-	public String getBk_Name() {
-		return bk_Name;
-	}
-	public void setBk_Name(String bk_Name) {
-		this.bk_Name = bk_Name;
-	}
-	public String getBk_Writer() {
-		return bk_Writer;
-	}
-	public void setBk_Writer(String bk_Writer) {
-		this.bk_Writer = bk_Writer;
-	}
-	public String getBk_Publish() {
-		return bk_Publish;
-	}
-	public void setBk_Publish(String bk_Publish) {
-		this.bk_Publish = bk_Publish;
-	}
-	public String getBk_Pic() {
-		return bk_Pic;
-	}
-	public void setBk_Pic(String bk_Pic) {
-		this.bk_Pic = bk_Pic;
-	}
-	public int getBr_score() {
-		return br_score;
-	}
-	public void setBr_score(int br_score) {
-		this.br_score = br_score;
-	}
-	public String getBr_content() {
-		return br_content;
-	}
-	public void setBr_content(String br_content) {
-		this.br_content = br_content;
-	}
-	public Date getBr_dateTime() {
-		return br_dateTime;
-	}
-	public void setBr_dateTime(Date br_dateTime) {
-		this.br_dateTime = br_dateTime;
-	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer BR_ID;
+	private Integer BR_Score;
+	private String BR_Content;
+	private Date BR_DateTime;
 	
+	@ManyToOne
+	@JoinColumn(name = "BK_ID")
+	private BookBean book;
 	
+	@ManyToOne
+	@JoinColumn(name = "MB_ID")
+	private MemberBean member;
+	
+	public BookReportBean() {
+		super();
+	}
+
+	public BookReportBean(Integer bR_ID, Integer bR_Score, String bR_Content, Date bR_DateTime, BookBean book,
+			MemberBean member) {
+		super();
+		BR_ID = bR_ID;
+		BR_Score = bR_Score;
+		BR_Content = bR_Content;
+		BR_DateTime = bR_DateTime;
+		this.book = book;
+		this.member = member;
+	}
+
+	public Integer getBR_ID() {
+		return BR_ID;
+	}
+
+	public void setBR_ID(Integer br_ID) {
+		this.BR_ID = br_ID;
+	}
+
+	public Integer getBR_Score() {
+		return BR_Score;
+	}
+
+	public void setBR_Score(Integer br_score) {
+		this.BR_Score = br_score;
+	}
+
+	public String getBR_Content() {
+		return BR_Content;
+	}
+
+	public void setBR_Content(String br_content) {
+		this.BR_Content = br_content;
+	}
+
+	public Date getBR_DateTime() {
+		return BR_DateTime;
+	}
+
+	public void setBR_DateTime(Date br_dateTime) {
+		this.BR_DateTime = br_dateTime;
+	}
+
+	public BookBean getBook() {
+		return book;
+	}
+
+	public void setBook(BookBean book) {
+		this.book = book;
+	}
+
+	public MemberBean getMember() {
+		return member;
+	}
+
+	public void setMember(MemberBean member) {
+		this.member = member;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("BookReportBean [BR_ID=");
+		builder.append(BR_ID);
+		builder.append(", BR_Score=");
+		builder.append(BR_Score);
+		builder.append(", BR_Content=");
+		builder.append(BR_Content);
+		builder.append(", BR_DateTime=");
+		builder.append(BR_DateTime);
+		builder.append(", book=");
+		builder.append(book);
+		builder.append(", member=");
+		builder.append(member);
+		builder.append("]");
+		return builder.toString();
+	}
+
+	
+
 }
