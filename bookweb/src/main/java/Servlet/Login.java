@@ -1,22 +1,23 @@
-package member;
+package Servlet;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
+import javax.servlet.*;
+import java.io.*;
+
+import java.sql.*;
 import java.util.List;
 
 //import javax.rmi.*;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
+import javax.naming.*;
+import javax.sql.*;
+
+import Service.MemberService;
+import member.IMemberDao;
+import memberbean.MemberBean;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
-
-import memberbean.MemberBean;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -75,44 +76,21 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		String account;
 		String pwd;
-		DataSource ds = null;
-		InitialContext ctxt = null;
-		Connection conn = null;
 
-		try {
-			// �إ�Context Object,�s��JNDI Server
-			ctxt = new InitialContext();
-			// �ϥ�JNDI API���DataSource
-			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/BookDB");
-			// ds = ( DataSource ) ctxt.lookup("jdbc/OracleXE");
-			// �VDataSource�nConnection
-			conn = ds.getConnection();
 			account = request.getParameter("account");
 			pwd = request.getParameter("pwd");
-			// �إ�Database Access Object,�t�dTable��Access
-			MemberDAO MemberDAO = new MemberDAO(conn);
-			if (MemberDAO.Login(account, pwd)) {
-				System.out.println("成功登入");
-				MemberBean select = MemberDAO.select(account);
-				request.getSession(true).setAttribute("Login", select);
 			
+			MemberService ms = new MemberService();
+			boolean mb = ms.Login(account, pwd);
+			if (mb) {
+				System.out.println("成功登入");
+				MemberBean select = ms.select(account);
+				request.getSession(true).setAttribute("Login", select);
 				request.getRequestDispatcher("/city.jsp").forward(request, response);
 			} else {
 				request.getRequestDispatcher("/login.jsp").forward(request, response);
 			}
-		} catch (NamingException ne) {
-			System.out.println("Naming Service Lookup Exception");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Database Connection Error");
-		} finally {
-			try {
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-				System.out.println("Connection Pool Error!");
-			}
-		}
+
 	}
 
 	// 會員資料
@@ -122,34 +100,34 @@ public class Login extends HttpServlet {
 		InitialContext ctxt = null;
 		Connection conn = null;
 
-		try {
+//		try {
+//
+//			ctxt = new InitialContext();
+//			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/EmployeeDB");
+//			conn = ds.getConnection();
+//			IMemberDao MemberDAO = new IMemberDao(conn);
+//			MemberBean mb_inf = (MemberBean) request.getSession(true).getAttribute("Login");
+//			String account = mb_inf.getmB_Account();
+//			MemberBean select = MemberDAO.select(account);
+//			request.getSession(true).setAttribute("Member", select);
+//			request.getRequestDispatcher("/mb_inf.jsp").forward(request, response);
+//		}
 
-			ctxt = new InitialContext();
-			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/BookDB");
-			conn = ds.getConnection();
-			MemberDAO MemberDAO = new MemberDAO(conn);
-			MemberBean mb_inf = (MemberBean) request.getSession(true).getAttribute("Login");
-			String account = mb_inf.getMB_Account();
-			MemberBean select = MemberDAO.select(account);
-			request.getSession(true).setAttribute("Member", select);
-			request.getRequestDispatcher("/mb_inf.jsp").forward(request, response);
-		}
-
-		catch (
-
-		NamingException ne) {
-			System.out.println("Naming Service Lookup Exception");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Database Connection Error");
-		} finally {
-			try {
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-				System.out.println("Connection Pool Error!");
-			}
-		}
+//		catch (
+//
+//		NamingException ne) {
+//			System.out.println("Naming Service Lookup Exception");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			System.out.println("Database Connection Error");
+//		} finally {
+//			try {
+//				if (conn != null)
+//					conn.close();
+//			} catch (Exception e) {
+//				System.out.println("Connection Pool Error!");
+//			}
+//		}
 	}
 
 	// 會員修改
@@ -167,23 +145,23 @@ public class Login extends HttpServlet {
 			ctxt = new InitialContext();
 
 			// �ϥ�JNDI API���DataSource
-			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/BookDB");
+			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/EmployeeDB");
 			// ds = ( DataSource ) ctxt.lookup("jdbc/OracleXE");
 			// �VDataSource�nConnection
 			conn = ds.getConnection();
 
 			// �إ�Database Access Object,�t�dTable��Access
-			MemberBean Login = (MemberBean) request.getSession(true).getAttribute("Login");
-			System.out.print(Login.getMB_Account());
-			account = Login.getMB_Account();
-			password = request.getParameter("pwd");
-			MemberDAO connt = new MemberDAO(conn);
-			boolean update = connt.update(account, password);
-
-			if (update) {
-				request.getRequestDispatcher("/city.jsp").forward(request, response);
+//			MemberBean Login = (MemberBean) request.getSession(true).getAttribute("Login");
+//			System.out.print(Login.getMB_Account());
+//			account = Login.getMB_Account();
+//			password = request.getParameter("pwd");
+//			MemberDAO connt = new MemberDAO(conn);
+//			boolean update = connt.update(account, password);
+//
+//			if (update) {
+//				request.getRequestDispatcher("/city.jsp").forward(request, response);
 //			response.sendRedirect("city.jsp");
-			}
+//			}
 		} catch (NamingException ne) {
 			System.out.println("Naming Service Lookup Exception");
 		} catch (SQLException e) {
@@ -208,33 +186,33 @@ public class Login extends HttpServlet {
 		InitialContext ctxt = null;
 		Connection conn = null;
 		System.out.println(1);
-		try {
-			ctxt = new InitialContext();
-			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/BookDB");
-			conn = ds.getConnection();
-
-			MemberDAO memberDAO = new MemberDAO(conn);
-			List<MemberBean> inf = memberDAO.adminselect();
-			System.out.println(inf);
-			// if(inf != null) {
-//				request.getSession(true).setAttribute("inf", inf);
-			request.setAttribute("user", inf);
-			// }
-			request.getRequestDispatcher("/adminModify.jsp").forward(request, response);
-//				request.getRequestDispatcher("/admin.jsp").forward(request, response);
-		} catch (NamingException ne) {
-			System.out.println("Naming Service Lookup Exception");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Database Connection Error");
-		} finally {
-			try {
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-				System.out.println("Connection Pool Error!");
-			}
-		}
+//		try {
+//			ctxt = new InitialContext();
+//			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/EmployeeDB");
+//			conn = ds.getConnection();
+//
+//			MemberDAO memberDAO = new MemberDAO(conn);
+//			List<MemberBean> inf = memberDAO.adminselect();
+//			System.out.println(inf);
+//			// if(inf != null) {
+////				request.getSession(true).setAttribute("inf", inf);
+//			request.setAttribute("user", inf);
+//			// }
+//			request.getRequestDispatcher("/adminModify.jsp").forward(request, response);
+////				request.getRequestDispatcher("/admin.jsp").forward(request, response);
+//		} catch (NamingException ne) {
+//			System.out.println("Naming Service Lookup Exception");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			System.out.println("Database Connection Error");
+//		} finally {
+//			try {
+//				if (conn != null)
+//					conn.close();
+//			} catch (Exception e) {
+//				System.out.println("Connection Pool Error!");
+//			}
+//		}
 
 	}
 
@@ -256,30 +234,30 @@ public class Login extends HttpServlet {
 		DataSource ds = null;
 		InitialContext ctxt = null;
 		Connection conn = null;
-		try {
-			ctxt = new InitialContext();
-			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/BookDB");
-			conn = ds.getConnection();
-
-			MemberDAO memberDAO = new MemberDAO(conn);
-			memberDAO.delete(MB_ID);
-			List<MemberBean> inf = memberDAO.adminselect();
-			request.setAttribute("user", inf);
-			request.getRequestDispatcher("/adminModify.jsp").forward(request, response);
-
-		} catch (NamingException ne) {
-			System.out.println("Naming Service Lookup Exception");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Database Connection Error");
-		} finally {
-			try {
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-				System.out.println("Connection Pool Error!");
-			}
-		}
+//		try {
+//			ctxt = new InitialContext();
+//			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/EmployeeDB");
+//			conn = ds.getConnection();
+//
+//			MemberDAO memberDAO = new MemberDAO(conn);
+//			memberDAO.delete(MB_ID);
+//			List<MemberBean> inf = memberDAO.adminselect();
+//			request.setAttribute("user", inf);
+//			request.getRequestDispatcher("/adminModify.jsp").forward(request, response);
+//
+//		} catch (NamingException ne) {
+//			System.out.println("Naming Service Lookup Exception");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			System.out.println("Database Connection Error");
+//		} finally {
+//			try {
+//				if (conn != null)
+//					conn.close();
+//			} catch (Exception e) {
+//				System.out.println("Connection Pool Error!");
+//			}
+//		}
 
 	}
 
