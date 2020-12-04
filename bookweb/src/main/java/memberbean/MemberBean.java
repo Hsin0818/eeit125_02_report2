@@ -1,175 +1,166 @@
 package memberbean;
 
+
+import java.sql.Blob;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Table; 
 
 @Entity
-@Table(name = "MEMBERS")
+@Table(name="MEMBERS")
 public class MemberBean {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer MB_ID;
-	private String MB_Account;
-	private String MB_Password;
-	private String MB_Sex;
-	private Date MB_Birthday;
-	private String MB_Name;
-	private String MB_Mail;
-	private String MB_Tel;
-	private String MB_Address;
-	private String MB_Date;
-	private Integer MB_Lv;
-	private String MB_type;
-
+	private Integer mB_ID;
+	private String mB_Account;
+	private String mB_Password;
+	private String mB_Sex;
+	private Date mB_Birthday;
+	private String mB_Name;
+	private String mB_Mail;
+	private String mB_Tel;
+	private String mB_Address;
+	private Timestamp mB_Date;
+	private Integer mB_Lv;
+	private String mB_type;
+	private Blob mB_pic;
+	
 	public MemberBean() {
+		super();
+	}
+	
+	
+	public MemberBean(Integer mB_ID, String mB_Account, String mB_Password, String mB_Sex, Date mB_Birthday,
+			String mB_Name, String mB_Mail, String mB_Tel, String mB_Address, Timestamp mB_Date, Integer mB_Lv,
+			String mB_type,Blob mB_pic) {
+		super();
+		this.mB_ID = mB_ID;
+		this.mB_Account = mB_Account;
+		this.mB_Password = mB_Password;
+		this.mB_Sex = mB_Sex;
+		this.mB_Birthday = mB_Birthday;
+		this.mB_Name = mB_Name;
+		this.mB_Mail = mB_Mail;
+		this.mB_Tel = mB_Tel;
+		this.mB_Address = mB_Address;
+		this.mB_Date = mB_Date;
+		this.mB_Lv = mB_Lv;
+		this.mB_type = mB_type;
+		this.mB_pic=mB_pic;
 	}
 
-	public MemberBean(String MB_Account, String MB_Password, String MB_Sex, Date MB_Birthday, String MB_Name,
-			String MB_Mail, String MB_Tel, String MB_Address, String MB_Date, Integer MB_Lv, String MB_type) {
-		this.MB_Account = MB_Account;
-		this.MB_Password = MB_Password;
-		this.MB_Sex = MB_Sex;
-		this.MB_Birthday = MB_Birthday;
-		this.MB_Name = MB_Name;
-		this.MB_Mail = MB_Mail;
-		this.MB_Tel = MB_Tel;
-		this.MB_Address = MB_Address;
-		this.MB_Date = MB_Date;
-		this.MB_Lv = MB_Lv;
-		this.MB_type = MB_type;
+	public Blob getmB_pic() {
+		return mB_pic;
 	}
 
-	public Integer getMB_ID() {
-		return MB_ID;
+	public void setmB_pic(Blob mB_pic) {
+		this.mB_pic = mB_pic;
 	}
 
-	public void setMB_ID(Integer mB_ID) {
-		MB_ID = mB_ID;
+	
+	public int getmB_ID() {
+		return mB_ID;
 	}
 
-	public String getMB_Account() {
-		return MB_Account;
+	public void setmB_ID(Integer mB_ID) {
+		this.mB_ID = mB_ID;
 	}
 
-	public void setMB_Account(String mB_Account) {
-		MB_Account = mB_Account;
+	public String getmB_Account() {
+		return mB_Account;
 	}
 
-	public String getMB_Password() {
-		return MB_Password;
+	public void setmB_Account(String mB_Account) {
+		this.mB_Account = mB_Account;
 	}
 
-	public void setMB_Password(String mB_Password) {
-		MB_Password = mB_Password;
+	public String getmB_Password() {
+		return mB_Password;
 	}
 
-	public String getMB_Sex() {
-		return MB_Sex;
+	public void setmB_Password(String mB_Password) {
+		this.mB_Password = mB_Password;
 	}
 
-	public void setMB_Sex(String mB_Sex) {
-		MB_Sex = mB_Sex;
+	public String getmB_Sex() {
+		return mB_Sex;
 	}
 
-	public Date getMB_Birthday() {
-		return MB_Birthday;
+	public void setmB_Sex(String mB_Sex) {
+		this.mB_Sex = mB_Sex;
 	}
 
-	public void setMB_Birthday(Date mB_Birthday) {
-		MB_Birthday = mB_Birthday;
+	public Date getmB_Birthday() {
+		return mB_Birthday;
 	}
 
-	public String getMB_Name() {
-		return MB_Name;
+	public void setmB_Birthday(Date mB_Birthday) {
+		this.mB_Birthday = mB_Birthday;
 	}
 
-	public void setMB_Name(String mB_Name) {
-		MB_Name = mB_Name;
+	public String getmB_Name() {
+		return mB_Name;
 	}
 
-	public String getMB_Mail() {
-		return MB_Mail;
+	public void setmB_Name(String mB_Name) {
+		this.mB_Name = mB_Name;
 	}
 
-	public void setMB_Mail(String mB_Mail) {
-		MB_Mail = mB_Mail;
+	public String getmB_Mail() {
+		return mB_Mail;
 	}
 
-	public String getMB_Tel() {
-		return MB_Tel;
+	public void setmB_Mail(String mB_Mail) {
+		this.mB_Mail = mB_Mail;
 	}
 
-	public void setMB_Tel(String mB_Tel) {
-		MB_Tel = mB_Tel;
+	public String getmB_Tel() {
+		return mB_Tel;
 	}
 
-	public String getMB_Address() {
-		return MB_Address;
+	public void setmB_Tel(String mB_Tel) {
+		this.mB_Tel = mB_Tel;
 	}
 
-	public void setMB_Address(String mB_Address) {
-		MB_Address = mB_Address;
+	public String getmB_Address() {
+		return mB_Address;
 	}
 
-	public String getMB_Date() {
-		return MB_Date;
+	public void setmB_Address(String mB_Address) {
+		this.mB_Address = mB_Address;
 	}
 
-	public void setMB_Date(String mB_Date) {
-		MB_Date = mB_Date;
+	public Timestamp getmB_Date() {
+		return mB_Date;
 	}
 
-	public Integer getMB_Lv() {
-		return MB_Lv;
+	public void setmB_Date(Timestamp mB_Date) {
+		this.mB_Date = mB_Date;
 	}
 
-	public void setMB_Lv(Integer mB_Lv) {
-		MB_Lv = mB_Lv;
+	public Integer getmB_Lv() {
+		return mB_Lv;
 	}
 
-	public String getMB_type() {
-		return MB_type;
+	public void setmB_Lv(Integer mB_Lv) {
+		this.mB_Lv = mB_Lv;
 	}
 
-	public void setMB_type(String mB_type) {
-		MB_type = mB_type;
+	public String getmB_type() {
+		return mB_type;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("MemberBean [MB_ID=");
-		builder.append(MB_ID);
-		builder.append(", MB_Account=");
-		builder.append(MB_Account);
-		builder.append(", MB_Password=");
-		builder.append(MB_Password);
-		builder.append(", MB_Sex=");
-		builder.append(MB_Sex);
-		builder.append(", MB_Birthday=");
-		builder.append(MB_Birthday);
-		builder.append(", MB_Name=");
-		builder.append(MB_Name);
-		builder.append(", MB_Mail=");
-		builder.append(MB_Mail);
-		builder.append(", MB_Tel=");
-		builder.append(MB_Tel);
-		builder.append(", MB_Address=");
-		builder.append(MB_Address);
-		builder.append(", MB_Date=");
-		builder.append(MB_Date);
-		builder.append(", MB_Lv=");
-		builder.append(MB_Lv);
-		builder.append(", MB_type=");
-		builder.append(MB_type);
-		builder.append("]");
-		return builder.toString();
+	public void setmB_type(String mB_type) {
+		this.mB_type = mB_type;
 	}
-
+	
+	
+	
+	
 }
