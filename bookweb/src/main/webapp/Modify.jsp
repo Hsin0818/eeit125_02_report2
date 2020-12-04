@@ -80,7 +80,7 @@ span {
 </head>
 
 <body>
-	<jsp:useBean id="Login" class="memberbean.MemberBean" scope="session" />
+	<jsp:useBean id="Login" class="Hibernate.model.MemberBean" scope="session" />
 	<form action="./Login" method="post">
 		<fieldset>
 			<legend>會員修改</legend>

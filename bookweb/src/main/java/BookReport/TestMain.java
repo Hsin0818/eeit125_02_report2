@@ -9,8 +9,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import Hibernate.model.MemberBean;
 import book.bean.BookBean;
-import memberbean.MemberBean;
 
 //import book.bean.BookBean;
 //import memberbean.MemberBean;

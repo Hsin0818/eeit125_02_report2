@@ -1,4 +1,4 @@
-package Servlet;
+package Hibernate.controller;
 
 import javax.servlet.*;
 import java.io.*;
@@ -8,8 +8,8 @@ import java.sql.*;
 import javax.naming.*;
 import javax.sql.*;
 
-import Service.MemberService;
-import memberbean.MemberBean;
+import Hibernate.model.MemberBean;
+import Hibernate.service.MemberService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

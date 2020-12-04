@@ -10,8 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import Hibernate.model.MemberBean;
 import book.bean.BookBean;
-import memberbean.MemberBean;
 
 @Entity
 @Table(name = "BOOK_REPORT")

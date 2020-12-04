@@ -75,7 +75,7 @@ span {
 </head>
 
 <body>
-	<jsp:useBean id="Member" class="memberbean.MemberBean" scope="session" />
+	<jsp:useBean id="Member" class="Hibernate.model.MemberBean" scope="session" />
 	<form action="./Member" method="post">
 		<fieldset>
 			<legend>會員資料</legend>

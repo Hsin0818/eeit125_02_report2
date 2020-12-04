@@ -1,8 +1,8 @@
-package member;
+package Hibernate.dao;
 
 import java.util.List;
 
-import memberbean.MemberBean;
+import Hibernate.model.MemberBean;
 
 public interface IMemberDao {
 
