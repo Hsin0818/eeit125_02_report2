@@ -60,7 +60,7 @@ response.setContentType("text/html;charset=UTF-8");
         </div>
         <!-- 下面是功能 -->
         <% if(request.getParameter("insertbk")!=null){%>
-	<FORM ACTION="./BookServlet" method="post">
+	<FORM ACTION="./BookServlet1" method="post">
 		編號 : <INPUT TYPE="TEXT" NAME="id"><BR> 
 		書名 : <INPUT TYPE="TEXT" NAME="name"><BR> 
 		作者 : <INPUT TYPE="TEXT" NAME="author"><BR> 
@@ -74,7 +74,7 @@ response.setContentType("text/html;charset=UTF-8");
 	</FORM>
 	<%} %>
 	<% if(request.getParameter("insertbk")==null){%>
-	<FORM action="./BookServlet" method="post">
+	<FORM action="./BookServlet1" method="post">
 	<jsp:useBean id="top" class="shopping.BookData" scope="session" />
 		<input type="hidden" name="bookid" value=<jsp:getProperty name="top" property="bookid" />><jsp:getProperty name="top" property="bookid" /><BR> 
 		<jsp:getProperty name="top" property="bookname" /><BR> 

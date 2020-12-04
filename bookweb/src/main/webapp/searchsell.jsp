@@ -61,7 +61,7 @@
 			</nav>
 		</div>
 		<!--  -->
-		<form action="./BookServlet" method="post">
+		<form action="./BookServlet1" method="post">
 			<div>
 				<input class="search-bar" type="text" name="searchbk" id="search"
 					placeholder="輸入名稱">
@@ -82,7 +82,7 @@
 			list = (List) request.getSession(true).getAttribute("qaqget");
 			%>
 		
-		<form action="./BookServlet" method="post">
+		<form action="./BookServlet1" method="post">
 			<%
 				for (BookData data : list) {
 			%>
