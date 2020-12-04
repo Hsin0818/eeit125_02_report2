@@ -1,17 +1,17 @@
-package collect;
+package DAO;
 // DAO: Database Access Object
 // �M�d�PDept Table���s�W,�ק�,�R���P�d��
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
-import book.bean.BookBean;
-import book.bean.CollectBean;
+import model.BookBean;
 
 public class BookDAO {
 
@@ -62,13 +62,13 @@ public static Connection getConnection(){
         while (rs.next()) {
         	BookBean dep = new BookBean();
         	
-        	dep.setBK_ID(rs.getInt("BK_ID"));
-        	dep.setBK_Name(rs.getString("BK_Name"));
-        	dep.setBK_Writer(rs.getString("BK_Writer"));
-        	dep.setBK_Publish(rs.getString("BK_Publish"));
-        	dep.setBK_Time(rs.getDate("BK_Time"));
-        	dep.setBK_Pic(rs.getString("BK_Pic"));
-        	dep.setBK_Content(rs.getString("BK_Content"));
+        	dep.setBk_ID(rs.getInt("BK_ID"));
+        	dep.setBk_Name(rs.getString("BK_Name"));
+        	dep.setBk_Writer(rs.getString("BK_Writer"));
+        	dep.setBk_Publish(rs.getString("BK_Publish"));
+        	dep.setBk_Time(rs.getDate("BK_Time"));
+        	dep.setBk_Pic(rs.getString("BK_Pic"));
+        	dep.setBk_Content(rs.getString("BK_Content"));
         	//dep.setURL(rs.getString("URL"));
         	list.add(dep);
         }
@@ -103,13 +103,13 @@ public static Connection getConnection(){
         
         while (rs.next()) {
         	
-        	dep.setBK_ID(rs.getInt("BK_ID"));
-        	dep.setBK_Name(rs.getString("BK_Name"));
-        	dep.setBK_Writer(rs.getString("BK_Writer"));
-        	dep.setBK_Publish(rs.getString("BK_Publish"));
-        	dep.setBK_Time(rs.getDate("BK_Time"));
-        	dep.setBK_Pic(rs.getString("BK_Pic"));
-        	dep.setBK_Content(rs.getString("BK_Content"));
+        	dep.setBk_ID(rs.getInt("BK_ID"));
+        	dep.setBk_Name(rs.getString("BK_Name"));
+        	dep.setBk_Writer(rs.getString("BK_Writer"));
+        	dep.setBk_Publish(rs.getString("BK_Publish"));
+        	dep.setBk_Time(rs.getDate("BK_Time"));
+        	dep.setBk_Pic(rs.getString("BK_Pic"));
+        	dep.setBk_Content(rs.getString("BK_Content"));
         }
         System.out.println(3);
   	  rs.close();   	
@@ -150,13 +150,13 @@ public static Connection getConnection(){
 	        while (rs.next()) {
 
 	        	dep = new BookBean();
-	        	dep.setBK_ID(rs.getInt("BK_ID"));
-	        	dep.setBK_Name(rs.getString("BK_Name"));
-	        	dep.setBK_Writer(rs.getString("BK_Writer"));
-	        	dep.setBK_Publish(rs.getString("BK_Publish"));
-	        	dep.setBK_Time(rs.getDate("BK_Time"));
-	        	dep.setBK_Pic(rs.getString("BK_Pic"));
-	        	dep.setBK_Content(rs.getString("BK_Content"));
+	        	dep.setBk_ID(rs.getInt("BK_ID"));
+	        	dep.setBk_Name(rs.getString("BK_Name"));
+	        	dep.setBk_Writer(rs.getString("BK_Writer"));
+	        	dep.setBk_Publish(rs.getString("BK_Publish"));
+	        	dep.setBk_Time(rs.getDate("BK_Time"));
+	        	dep.setBk_Pic(rs.getString("BK_Pic"));
+	        	dep.setBk_Content(rs.getString("BK_Content"));
 	        	//dep.setURL(rs.getString("URL"));
 	        	list2.add(dep);
 	        }

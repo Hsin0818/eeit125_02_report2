@@ -1,4 +1,4 @@
-package BookReport;
+package DAO;
 
 
 import java.util.Date;
@@ -9,7 +9,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import book.bean.BookBean;
+import BookReport.HibernateUtils;
+import model.BookBean;
+import model.BookReportBean;
 import model.MemberBean;
 
 public class BookRebortDAO {

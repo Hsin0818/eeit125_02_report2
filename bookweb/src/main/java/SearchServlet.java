@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 //import java.io.PrintWriter;
 //import java.io.IOException;
 import book.bean.*;
-import collect.BookDAO;
+import model.BookBean;
 
 import java.io.*;
 
@@ -14,6 +14,9 @@ import java.util.List;
 
 import javax.naming.*;
 import javax.sql.*;
+
+import DAO.BookDAO;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
