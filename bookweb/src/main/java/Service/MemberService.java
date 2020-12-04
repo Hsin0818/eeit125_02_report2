@@ -1,4 +1,4 @@
-package Hibernate.service;
+package Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,9 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 
 import BookReport.HibernateUtils;
-import Hibernate.dao.IMemberDao;
-import Hibernate.dao.MemberDao;
-import Hibernate.model.MemberBean;
-
+import DAO.IMemberDao;
+import DAO.MemberDao;
+import model.MemberBean;
 
 @Service
 public class MemberService {

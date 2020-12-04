@@ -40,7 +40,7 @@ legend {
 
 
 	<%
-		List<MemberBean> user = (List<MemberBean>) request.getAttribute("user");
+		List user = (List)request.getAttribute("user");
 	request.setAttribute("list", user);
 	%>
 	<form action="./Login" method="post">
@@ -64,20 +64,20 @@ legend {
 				</tr>
 				<c:forEach items="${list}" var="u">
 					<tr>
-						<td>${u.getMB_ID()}</td>
-						<td>${u.getMB_Account()}</td>
-						<td>${u.getMB_Password()}</td>
-						<td>${u.getMB_Sex()}</td>
-						<td>${u.getMB_Birthday()}</td>
-						<td>${u.getMB_Name()}</td>
-						<td>${u.getMB_Mail()}</td>
-						<td>${u.getMB_Tel()}</td>
-						<td>${u.getMB_Address()}</td>
-						<td>${u.getMB_Date()}</td>
-						<td>${u.getMB_Lv()}</td>
-						<td>${u.getMB_type()}</td>
+						<td>${u.getmB_ID()}</td>
+						<td>${u.getmB_Account()}</td>
+						<td>${u.getmB_Password()}</td>
+						<td>${u.getmB_Sex()}</td>
+						<td>${u.getmB_Birthday()}</td>
+						<td>${u.getmB_Name()}</td>
+						<td>${u.getmB_Mail()}</td>
+						<td>${u.getmB_Tel()}</td>
+						<td>${u.getmB_Address()}</td>
+						<td>${u.getmB_Date()}</td>
+						<td>${u.getmB_Lv()}</td>
+						<td>${u.getmB_type()}</td>
 						<td><button type="sumbit" name="delete"
-								value="${u.getMB_ID()}" onclick="confirmChoice( )">刪除</a></td>
+								value="${u.getmB_ID()}" onclick="confirmChoice( )">刪除</a></td>
 					</tr>
 				</c:forEach>
 			</table>

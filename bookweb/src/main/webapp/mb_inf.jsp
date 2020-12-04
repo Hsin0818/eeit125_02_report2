@@ -75,59 +75,59 @@ span {
 </head>
 
 <body>
-	<jsp:useBean id="Member" class="Hibernate.model.MemberBean" scope="session" />
+	<jsp:useBean id="Member" class="model.MemberBean" scope="session" />
 	<form action="./Member" method="post">
 		<fieldset>
 			<legend>會員資料</legend>
 			<div class="a2">
 				<label>帳號:</label>
-				<jsp:getProperty name="Member" property="MB_Account" />
+				<jsp:getProperty name="Member" property="mB_Account" />
 				<span id="idsp2"></span><br />
 				<p style="color: gray;">(1.不可空白 2.至少6個字且必須包含英文字母、數字)</p>
 			</div>
 			<div class="a3">
 				<label>密碼:</label>
-				<jsp:getProperty name="Member" property="MB_Password" />
+				<jsp:getProperty name="Member" property="mB_Password" />
 				<span id="idsp1"></span><br />
 				<p style="color: gray;">(1.不可空白，2.至少6個字且必須包含英文字母、數字)</p>
 			</div>
 			<div class="a1">
 				<label>姓名:</label>
-				<jsp:getProperty name="Member" property="MB_Name" />
+				<jsp:getProperty name="Member" property="mB_Name" />
 			</div>
 			<br>
 			<div class="a5">
 				<label>性別:</label>
-				<jsp:getProperty name="Member" property="MB_Sex" />
+				<jsp:getProperty name="Member" property="mB_Sex" />
 				<span id="idsp3"></span>
 			</div>
 			<div class="a6">
 				<label>生日:</label>
-				<jsp:getProperty name="Member" property="MB_Birthday" />
+				<jsp:getProperty name="Member" property="mB_Birthday" />
 				<span id="idsp4"></span><br />
 			</div>
 			<br />
 			<div class="a7">
 				<label>地址:</label>
-				<jsp:getProperty name="Member" property="MB_Address" />
+				<jsp:getProperty name="Member" property="mB_Address" />
 				<span id="idsp5"></span><br />
 			</div>
 			<br />
 			<div class="a8">
 				<label>電話:</label>
-				<jsp:getProperty name="Member" property="MB_Tel" />
+				<jsp:getProperty name="Member" property="mB_Tel" />
 				<span id="idsp6"></span><br />
 			</div>
 			<br />
 			<div class="a9">
 				<label>E-mail:</label>
-				<jsp:getProperty name="Member" property="MB_Mail" />
+				<jsp:getProperty name="Member" property="mB_Mail" />
 				<span id="idsp7"></span><br />
 			</div>
 			<br />
 			<div class="a10">
 				<label>喜好類型:</label><br />
-				<jsp:getProperty name="Member" property="MB_type" />
+				<jsp:getProperty name="Member" property="mB_type" />
 				<span id="idsp8"></span><br />
 			</div>
 			<br>

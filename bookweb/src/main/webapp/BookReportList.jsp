@@ -148,7 +148,7 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 									value="<%=reportData.getBook().getBK_Name()%>"> <input
 									type="hidden" id="edit_MbID"
 									name="<%=reportData.getBR_ID()%>MbID"
-									value="<%=reportData.getMember().getMB_ID()%>"> <input
+									value="<%=reportData.getMember().getmB_ID()%>"> <input
 									type="hidden" id="edit_BkID" name="BkID"
 									value="<%=reportData.getBook().getBK_ID()%>"> <input
 									type="hidden" id="<%=reportData.getBR_ID()%>edit_BrContent"

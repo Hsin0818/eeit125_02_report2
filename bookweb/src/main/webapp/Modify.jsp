@@ -80,13 +80,13 @@ span {
 </head>
 
 <body>
-	<jsp:useBean id="Login" class="Hibernate.model.MemberBean" scope="session" />
+	<jsp:useBean id="Member" class="model.MemberBean" scope="session" />
 	<form action="./Login" method="post">
 		<fieldset>
 			<legend>會員修改</legend>
 			<div class="a2">
 				<label>帳號:</label>
-				<jsp:getProperty name="Login" property="MB_Account" />
+				<jsp:getProperty name="Member" property="mB_Account" />
 				<span id="idsp2"></span><br />
 				<p style="color: gray;">(1.不可空白 2.至少6個字且必須包含英文字母、數字)</p>
 			</div>

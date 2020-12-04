@@ -1,4 +1,4 @@
-package Hibernate.model;
+package model;
 
 
 import java.sql.Blob;

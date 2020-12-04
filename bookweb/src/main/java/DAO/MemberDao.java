@@ -1,4 +1,4 @@
-package Hibernate.dao;
+package DAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import BookReport.HibernateUtils;
-import Hibernate.model.MemberBean;
+import model.MemberBean;
 
 @Repository
 public class MemberDao implements IMemberDao {
@@ -26,11 +26,11 @@ public class MemberDao implements IMemberDao {
 	@Override
 	public boolean Login(String account , String pwd) {	
 		boolean result = false;	
-		String hql = "FROM MemberBean WHERE mB_Account =:account";
+		String hql = "FROM MemberBean WHERE mB_Account =:account and mB_Password = :pwd";
 		Session session =factory.getCurrentSession();
 		
 		Query<MemberBean> query = session.createQuery(hql);
-		List<MemberBean> list = query.setParameter("account", account).getResultList();
+		List<MemberBean> list = query.setParameter("account", account).setParameter("pwd", pwd).getResultList();
 		if(list.size()>0) {
 		result = true;	
 	}
@@ -48,10 +48,12 @@ public class MemberDao implements IMemberDao {
 	@Override
 	public MemberBean select(String account) {
 			MemberBean mb = null;
+			String hql = "FROM MemberBean WHERE mB_Account=:account";
 			Session session = factory.getCurrentSession();
-			mb = session.get(MemberBean.class,account);
+			Query<MemberBean> query = session.createQuery(hql);
+			mb = query.setParameter("account", account).getSingleResult();
 
-		return mb;
+		return  mb;
 	}
 
 	@Override
