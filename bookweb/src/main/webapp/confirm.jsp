@@ -78,50 +78,50 @@ span {
 </head>
 
 <body>
-	<jsp:useBean id="reg_member" class="memberbean.MemberBean" scope="session" />
-	<form action="./Register" method="post">
+	<jsp:useBean id="reg_member" class="model.MemberBean" scope="session" />
+	<form action="Register" method="post">
 		<fieldset>
 			<legend>會員確認</legend>
 			<div class="a2">
 				<label>帳號:</label>
-				<jsp:getProperty name="reg_member" property="MB_Account" />
+				<jsp:getProperty name="reg_member" property="mB_Account" />
 			</div>
 			<div class="a3">
 				<label>密碼:</label>
-				<jsp:getProperty name="reg_member" property="MB_Password" />
+				<jsp:getProperty name="reg_member" property="mB_Password" />
 			</div>
 			<div class="a1">
 				<label>姓名:</label>
-				<jsp:getProperty name="reg_member" property="MB_Name" />
+				<jsp:getProperty name="reg_member" property="mB_Name" />
 			</div>
 			<br>
 			<div class="a5">
 				<label>性別:</label>
-				<jsp:getProperty name="reg_member" property="MB_Sex" />
+				<jsp:getProperty name="reg_member" property="mB_Sex" />
 			</div>
 			<div class="a6">
 				<label>生日:</label>
-				<jsp:getProperty name="reg_member" property="MB_Birthday" />
+				<jsp:getProperty name="reg_member" property="mB_Birthday" />
 			</div>
 			<br />
 			<div class="a7">
 				<label>地址:</label>
-				<jsp:getProperty name="reg_member" property="MB_Address" />
+				<jsp:getProperty name="reg_member" property="mB_Address" />
 			</div>
 			<br />
 			<div class="a8">
 				<label>電話:</label>
-				<jsp:getProperty name="reg_member" property="MB_Tel" />
+				<jsp:getProperty name="reg_member" property="mB_Tel" />
 			</div>
 			<br />
 			<div class="a9">
 				<label>E-mail:</label>
-				<jsp:getProperty name="reg_member" property="MB_Mail" />
+				<jsp:getProperty name="reg_member" property="mB_Mail" />
 			</div>
 			<br />
 			<div class="a10">
 				<label>喜好類型:</label><br />
-				<jsp:getProperty name="reg_member" property="MB_type" />
+				<jsp:getProperty name="reg_member" property="mB_type" />
 			</div>
 			<div class="a11">
 			<button type="submit" name="confirm">送出</button>

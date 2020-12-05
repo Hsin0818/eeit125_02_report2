@@ -6,10 +6,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import Bean.ArticleBean;
 import DAO.ArticleDAO;
 import DAO.ArticleDAOInterface;
 import SetConnection.HibernateUtils;
+import model.ArticleBean;
 
 public class ArticleService implements ArticleServiceInterface {
 	

@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import Bean.ArticleBean;
+
 import DAO.ArticleDAO;
 import DAO.ArticleDAOInterface;
 import Service.ArticleService;
 import Service.ArticleServiceInterface;
+import model.ArticleBean;
 
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {

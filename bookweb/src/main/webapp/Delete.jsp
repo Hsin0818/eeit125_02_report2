@@ -9,8 +9,8 @@ response.setContentType("text/html;charset=UTF-8");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<%@page import="collect.*"%>
-<jsp:useBean id="u" class="book.bean.CollectBean"></jsp:useBean>  
+<%@page import="Service.*"%>
+<jsp:useBean id="u" class="DAO.BookDAO"></jsp:useBean>  
 <jsp:setProperty property="*" name="u"/>  
 
 <title>刪除頁面</title>
@@ -20,7 +20,7 @@ response.setContentType("text/html;charset=UTF-8");
 <%
 String bk_id=request.getParameter("bk_id");
 String mb_id=request.getParameter("mb_id");
-int newone=BookDAO.delete(Integer.parseInt(bk_id), Integer.parseInt(mb_id));
+int newone=u.delete(Integer.parseInt(bk_id), Integer.parseInt(mb_id));
 response.sendRedirect("Collect.jsp");  
 %>
 

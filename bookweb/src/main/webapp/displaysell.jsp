@@ -75,7 +75,7 @@ response.setContentType("text/html;charset=UTF-8");
 	<%} %>
 	<% if(request.getParameter("insertbk")==null){%>
 	<FORM action="./BookServlet" method="post">
-	<jsp:useBean id="top" class="shopping.BookData" scope="session" />
+	<jsp:useBean id="top" class="DAO.BookDAO" scope="session" />
 		<input type="hidden" name="bookid" value=<jsp:getProperty name="top" property="bookid" />><jsp:getProperty name="top" property="bookid" /><BR> 
 		<jsp:getProperty name="top" property="bookname" /><BR> 
 		<jsp:getProperty name="top" property="bookauthor" /><BR> 

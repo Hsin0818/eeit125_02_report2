@@ -7,8 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
-import Bean.ArticleBean;
 import SetConnection.HibernateUtils;
+import model.ArticleBean;
 
 public class ArticleDAO implements ArticleDAOInterface {
 

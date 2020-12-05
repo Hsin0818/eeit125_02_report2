@@ -1,6 +1,6 @@
 package Service;
 
-import Bean.ArticleBean;
+import model.ArticleBean;
 
 public interface ArticleServiceInterface {
 

@@ -1,6 +1,6 @@
 package DAO;
 
-import Bean.ArticleBean;
+import model.ArticleBean;
 
 public interface ArticleDAOInterface {
 
