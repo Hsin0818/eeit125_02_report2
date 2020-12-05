@@ -35,7 +35,11 @@ width:200px;
 		<h1>查詢 ${param.keyword} 的結果為</h1>
 	</div>	
 	
-	<sql:query var="result" scope="request" dataSource="jdbc/BookDB">                
+	<sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+     url="jdbc:sqlserver://10.31.25.125:1433;DatabaseName=BookDB"  
+     user="book"  password="qaq"/>  
+	
+	<sql:query var="result" scope="request" dataSource="${db}">                
                 SELECT * FROM NOVEL_ARTICLE WHERE Title like N'%${param.keyword}%' or Content like N'%${param.keyword}%'
     </sql:query>
    
