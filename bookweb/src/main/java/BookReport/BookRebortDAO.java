@@ -1,4 +1,4 @@
-package BookRebort;
+package BookReport;
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import book.bean.BookBean;
-import memberbean.MemberBean;
+import model.MemberBean;
 
 public class BookRebortDAO {
 	

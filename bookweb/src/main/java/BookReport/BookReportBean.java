@@ -1,4 +1,4 @@
-package BookRebort;
+package BookReport;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import book.bean.BookBean;
-import memberbean.MemberBean;
+import model.MemberBean;
 
 @Entity
 @Table(name = "BOOK_REPORT")

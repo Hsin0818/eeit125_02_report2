@@ -3,7 +3,7 @@
 language="java" 
 contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"
-import="BookRebort.*"
+import="BookReport.*"
 import="java.util.List"
 %>
 <%
@@ -141,7 +141,7 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 						<p class="card-text">評分：<%=reportData.getBR_Score()%></p>
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_pic" name="<%=reportData.getBR_ID()%>BkPic" value="<%=reportData.getBook().getBK_Pic()%>">
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkName" name="<%=reportData.getBR_ID()%>BkName" value="<%=reportData.getBook().getBK_Name()%>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_MbID" name="<%=reportData.getBR_ID()%>MbID" value="<%=reportData.getMember().getMB_ID()%>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_MbID" name="<%=reportData.getBR_ID()%>MbID" value="<%=reportData.getMember().getmB_ID()%>">
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkID" name="<%=reportData.getBR_ID()%>BkID" value="<%=reportData.getBook().getBK_ID()%>">
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BrContent" name="<%=reportData.getBR_ID()%>BrContent" value="<%=reportData.getBR_Content()%>">
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkWriter" name="<%=reportData.getBR_ID()%>BkWriter" value="<%=reportData.getBook().getBK_Writer() %>">

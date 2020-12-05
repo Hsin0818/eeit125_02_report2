@@ -1,4 +1,4 @@
-package BookRebort;
+package BookReport;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import book.bean.BookBean;
-import memberbean.MemberBean;
+import model.MemberBean;
 
 //import book.bean.BookBean;
 //import memberbean.MemberBean;
