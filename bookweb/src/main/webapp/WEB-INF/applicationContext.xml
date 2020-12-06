@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- 掃描stereotype annotation -->
+	<context:component-scan base-package="DAO, Service, Servlet, Bean"></context:component-scan>
+
+	<!-- 連線資料指向db.properties檔 -->
+	<context:property-placeholder
+		location="classpath:db.properties" />
+
+	<!-- dataSource連線設定 -->
+	<bean id="dataSource" destroy-method='close' scope="prototype"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialPoolSize" value="${jdbc.initPoolSize}" />
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
+	</bean>
+	
+   <bean  id='jdbcTemplate' class="org.springframework.jdbc.core.JdbcTemplate">
+	  <property name="dataSource" ref="dataSource" />
+   </bean>
+   
+	<bean id='sessionFactory'
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref='dataSource' />
+		<!-- 掃描有永續類別的package -->
+		<property name="packagesToScan" value='Bean' />
+		<property name="configLocation"
+			value='classpath:hibernate.cfg.xml' />
+	</bean>
+
+	<bean id='transactionManager'
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 	開放用註釋驅動交易 -->
+	<tx:annotation-driven/>
+
+</beans>

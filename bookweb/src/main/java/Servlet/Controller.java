@@ -5,12 +5,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import Bean.ArticleBean;
 import DAO.ArticleDAO;
 import DAO.ArticleDAOInterface;
@@ -24,9 +29,6 @@ public class Controller extends HttpServlet {
 	private static final String CONTENT_TYPE = "text/html; charset=UTF-8";
 	private static final String CHARSET_CODE = "UTF-8";
 
-//	DataSource ds = null;
-//	InitialContext ctxt = null;
-//	Connection conn = null;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -38,9 +40,6 @@ public class Controller extends HttpServlet {
 		response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 
 		try {
-//			ctxt = new InitialContext();
-//			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/BookDB");
-//			conn = ds.getConnection();
 
 			//根據前端button submit的參數，分配處理的程式
 			if (request.getParameter("insertarticle") != null) {
@@ -52,13 +51,6 @@ public class Controller extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-//		} finally {
-//			try {
-//				if (conn != null)
-//					conn.close();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
 		}
 
 	}
@@ -69,7 +61,12 @@ public class Controller extends HttpServlet {
 
 		String article_title = (String) request.getParameter("article_title");
 		String article_content = (String) request.getParameter("article_content");
-		ArticleServiceInterface service = new ArticleService();
+//		ArticleServiceInterface service = new ArticleService();
+		ServletContext sc = getServletContext();
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(sc);
+		ArticleServiceInterface service = ctx.getBean(ArticleServiceInterface.class);
+		
 		service.insertArticle(new ArticleBean(article_title, article_content));
 		response.sendRedirect("insertsuccess.jsp");
 	}
@@ -81,7 +78,12 @@ public class Controller extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("ID"));
 		String article_title = (String) request.getParameter("article_title");
 		String article_content = (String) request.getParameter("article_content");
-		ArticleServiceInterface service = new ArticleService();
+//		ArticleServiceInterface service = new ArticleService();
+		ServletContext sc = getServletContext();
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(sc);
+		ArticleServiceInterface service = ctx.getBean(ArticleServiceInterface.class);
+		
 		service.editArticle(new ArticleBean(article_title, article_content), id);
 		response.sendRedirect("editsuccess.jsp");
 	}
@@ -91,7 +93,12 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 
 		int id = Integer.parseInt(request.getParameter("sendID"));
-		ArticleServiceInterface service = new ArticleService();
+//		ArticleServiceInterface service = new ArticleService();
+		ServletContext sc = getServletContext();
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(sc);
+		ArticleServiceInterface service = ctx.getBean(ArticleServiceInterface.class);
+		
 		service.deleteArticle(id);
 		response.sendRedirect("deletesuccess.jsp");
 	}

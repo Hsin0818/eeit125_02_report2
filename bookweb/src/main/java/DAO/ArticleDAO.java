@@ -6,15 +6,17 @@ import java.sql.PreparedStatement;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import Bean.ArticleBean;
-import SetConnection.HibernateUtils;
 
+@Repository
 public class ArticleDAO implements ArticleDAOInterface {
 
-	SessionFactory factory = HibernateUtils.getSessionFactory();
-
-
+	@Autowired
+	SessionFactory factory;
+	
 	//新增貼文DAO
 	@Override
 	public boolean insertArticle(ArticleBean articleData) {
