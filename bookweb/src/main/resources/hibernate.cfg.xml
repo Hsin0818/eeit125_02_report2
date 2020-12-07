@@ -30,5 +30,6 @@
 		<mapping class="model.BookReportBean" />
 		<mapping class="model.BookBean" />
 		<mapping class="model.MemberBean" />
+
 	</session-factory>
 </hibernate-configuration>

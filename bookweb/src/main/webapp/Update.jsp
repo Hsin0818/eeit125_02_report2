@@ -1,5 +1,4 @@
-<%@page import="book.bean.*"%>
-<%@page import="collect.*"%>
+
 <%@page import="model.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 

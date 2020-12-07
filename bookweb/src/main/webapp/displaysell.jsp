@@ -59,35 +59,37 @@ response.setContentType("text/html;charset=UTF-8");
             </nav>
         </div>
         <!-- 下面是功能 -->
-        <% if(request.getParameter("insertbk")!=null){%>
-	<FORM ACTION="./BookServlet1" method="post">
-		編號 : <INPUT TYPE="TEXT" NAME="id"><BR> 
-		書名 : <INPUT TYPE="TEXT" NAME="name"><BR> 
-		作者 : <INPUT TYPE="TEXT" NAME="author"><BR> 
-		出版社 : <INPUT TYPE="TEXT" NAME="publish"><BR> 
-		價錢 : <INPUT TYPE="TEXT" NAME="price"><BR>
-		數量 : <INPUT TYPE="TEXT" NAME="qty"><BR>
-		<button type="submit" name="insertbk">確定</button>
-	</FORM>
-	<FORM ACTION="sellmid.jsp">
-		<button type="submit" name="">返回</button>
-	</FORM>
-	<%} %>
-	<% if(request.getParameter("insertbk")==null){%>
+<%--         <% if(request.getParameter("insertbk")!=null){%> --%>
+<!-- 	<FORM ACTION="./BookServlet1" method="post"> -->
+<!-- 		編號 : <INPUT TYPE="TEXT" NAME="id"><BR>  -->
+<!-- 		書名 : <INPUT TYPE="TEXT" NAME="name"><BR>  -->
+<!-- 		作者 : <INPUT TYPE="TEXT" NAME="author"><BR>  -->
+<!-- 		出版社 : <INPUT TYPE="TEXT" NAME="publish"><BR>  -->
+<!-- 		價錢 : <INPUT TYPE="TEXT" NAME="price"><BR> -->
+<!-- 		數量 : <INPUT TYPE="TEXT" NAME="qty"><BR> -->
+<!-- 		<button type="submit" name="insertbk">確定</button> -->
+<!-- 	</FORM> -->
+<!-- 	<FORM ACTION="sellmid.jsp"> -->
+<!-- 		<button type="submit" name="">返回</button> -->
+<!-- 	</FORM> -->
+<%-- 	<%} %> --%>
+<%-- 	<%  --%>
+<!-- 	if(request.getParameter("insertbk")==null){ -->
+<!-- 	%> -->
 	<FORM action="./BookServlet1" method="post">
 	<jsp:useBean id="top" class="shopping.BookData" scope="session" />
-		<input type="hidden" name="bookid" value=<jsp:getProperty name="top" property="bookid" />><jsp:getProperty name="top" property="bookid" /><BR> 
-		<jsp:getProperty name="top" property="bookname" /><BR> 
-		<jsp:getProperty name="top" property="bookauthor" /><BR> 
-		<jsp:getProperty name="top" property="bookpublish" /><BR> 
-		價錢 : <INPUT TYPE="TEXT" NAME="price" value=<jsp:getProperty name="top" property="bookprice" />><BR>
-		數量 : <INPUT TYPE="TEXT" NAME="qty" value=<jsp:getProperty name="top" property="bookqty" />><BR>
+		<input type="hidden" name="BK_ID" value=<jsp:getProperty name="top" property="BK_ID" />><jsp:getProperty name="top" property="BK_ID" /><BR> 
+		<jsp:getProperty name="top" property="BK_Name" /><BR> 
+		<jsp:getProperty name="top" property="BK_Writer" /><BR> 
+		<jsp:getProperty name="top" property="BK_Publish" /><BR> 
+		價錢 : <INPUT TYPE="TEXT" NAME="price" value=0><BR>
+		數量 : <INPUT TYPE="TEXT" NAME="qty" value=0><BR>
 		<button type="submit" name="updatebk">確定修改</button>
 	</FORM>
 	<FORM ACTION="sellmid.jsp">
 		<button type="submit" name="">返回</button>
 	</FORM>
-	<%} %>
+<%-- 	<%} %> --%>
 
 
 

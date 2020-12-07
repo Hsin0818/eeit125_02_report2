@@ -1,6 +1,5 @@
-<%@page import="book.bean.*"%>
+
 <%@page import="model.*"%>
-<%@page import="collect.*"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" session="false"%>

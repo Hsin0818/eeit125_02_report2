@@ -74,7 +74,6 @@
 			if (request.getParameter("searchbk") != null) {
 		%>
 		<p>
-			asdsa
 			<%!List<BookData> list;%>
 			<%!BookData data;%>
 			<%
@@ -97,13 +96,13 @@
 					<th>&nbsp;</th>
 				</tr>
 				<tr>
-					<td><%=data.getBookid()%></td>
-					<td><%=data.getBookname()%></td>
-					<td><%=data.getBookauthor()%></td>
-					<td><%=data.getBookpublish()%></td>
-					<td><INPUT TYPE="TEXT" NAME="<%=data.getBookid()%>price"></td>
-					<td><INPUT TYPE="TEXT" NAME="<%=data.getBookid()%>qty"></td>
-					<td><button type="submit" value=<%=data.getBookid()%>
+					<td><%=data.getBK_ID()%></td>
+					<td><%=data.getBK_Name()%></td>
+					<td><%=data.getBK_Writer()%></td>
+					<td><%=data.getBK_Publish()%></td>
+					<td><INPUT TYPE="TEXT" NAME="<%=data.getBK_ID()%>price"></td>
+					<td><INPUT TYPE="TEXT" NAME="<%=data.getBK_ID()%>qty"></td>
+					<td><button type="submit" value=<%=data.getBK_ID()%>
 							name="setbk">刊登</button></td>
 				</tr>
 			</table>
