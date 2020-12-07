@@ -27,9 +27,8 @@
 		<property name="connection_pool_size">8</property>
 
 		<!-- 3. 宣告程式使用的Mapping檔 ，每個永續類別都需要定義一個Mapping檔 -->
-		<mapping class="BookRebort.BookReportBean"/>
-		<mapping class="book.bean.BookBean"/>
-		<mapping class= "memberbean.MemberBean"/>
-
+		<mapping class="model.BookReportBean" />
+		<mapping class="model.BookBean" />
+		<mapping class="model.MemberBean" />
 	</session-factory>
 </hibernate-configuration>

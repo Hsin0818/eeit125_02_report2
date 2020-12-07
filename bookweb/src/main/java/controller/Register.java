@@ -1,4 +1,4 @@
-package Servlet;
+package controller;
 
 import javax.servlet.*;
 import java.io.*;
@@ -9,7 +9,7 @@ import javax.naming.*;
 import javax.sql.*;
 
 import Service.MemberService;
-import memberbean.MemberBean;
+import model.MemberBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

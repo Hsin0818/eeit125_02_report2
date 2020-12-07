@@ -1,4 +1,4 @@
-package BookReport;
+package model;
 
 import java.util.Date;
 
@@ -9,9 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import book.bean.BookBean;
-import memberbean.MemberBean;
 
 @Entity
 @Table(name = "BOOK_REPORT")
@@ -25,11 +22,11 @@ public class BookReportBean {
 	private Date BR_DateTime;
 	
 	@ManyToOne
-	@JoinColumn(name = "BK_ID")
+	@JoinColumn(name = "bk_ID")
 	private BookBean book;
 	
 	@ManyToOne
-	@JoinColumn(name = "MB_ID")
+	@JoinColumn(name = "mB_ID")
 	private MemberBean member;
 	
 	public BookReportBean() {

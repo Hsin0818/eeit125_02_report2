@@ -11,6 +11,6 @@ response.setContentType("text/html;charset=UTF-8");
 <title>完成報名</title>
 </head>
 <body>
-<% request.getRequestDispatcher("/login.jsp").forward(request, response); %>
+註冊成功
 </body>
 </html>

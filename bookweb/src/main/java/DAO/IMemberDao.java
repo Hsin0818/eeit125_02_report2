@@ -1,8 +1,8 @@
-package member;
+package DAO;
 
 import java.util.List;
 
-import memberbean.MemberBean;
+import model.MemberBean;
 
 public interface IMemberDao {
 

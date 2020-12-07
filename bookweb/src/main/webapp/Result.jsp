@@ -1,5 +1,5 @@
 <%@page import="book.bean.*"%>
-
+<%@page import="model.*"%>
 <%@page import="collect.*"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -36,7 +36,7 @@
 <body>
 		<form action="./SearchServlet" method="post">
 
-<jsp:useBean id="searchlist" class="book.bean.BookBean" />
+<jsp:useBean id="searchlist" class="model.BookBean" />
 	<div class="container">
 		<header class="blog-header py-3">
 			<div class="row flex-nowrap justify-content-between align-items-center">
