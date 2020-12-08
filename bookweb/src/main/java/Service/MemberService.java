@@ -9,10 +9,9 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 
 import BookReport.HibernateUtils;
-import member.IMemberDao;
-import member.MemberDao;
-import memberbean.MemberBean;
-
+import DAO.IMemberDao;
+import DAO.MemberDao;
+import model.MemberBean;
 
 @Service
 public class MemberService {

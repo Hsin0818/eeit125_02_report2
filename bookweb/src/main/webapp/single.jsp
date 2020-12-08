@@ -61,23 +61,23 @@ request.setCharacterEncoding("UTF-8");
 		<form method="POST">
 			<div>
 				<label for="url"></label> <img alt="xx" width="200px" height="300px"
-					src="<jsp:getProperty name="mid" property="url" />">
+					src="<jsp:getProperty name="mid" property="BK_Pic" />">
 			</div>
 			<div>
-				<label for="bookname">書名</label>
-				<jsp:getProperty name="mid" property="bookname" />
+				<label for="BK_Name">書名</label>
+				<jsp:getProperty name="mid" property="BK_Name" />
 			</div>
 			<div>
-				<label for="bookauthor">作者</label>
-				<jsp:getProperty name="mid" property="bookauthor" />
+				<label for="BK_Writer">作者</label>
+				<jsp:getProperty name="mid" property="BK_Writer" />
 			</div>
 			<div>
-				<label for="bookpublish">出版社</label>
-				<jsp:getProperty name="mid" property="bookpublish" />
+				<label for="BK_Publish">出版社</label>
+				<jsp:getProperty name="mid" property="BK_Publish" />
 			</div>
 			<div>
-				<label for="content">描述: </label>
-				<jsp:getProperty name="mid" property="content" />
+				<label for="BK_Content">描述: </label>
+				<jsp:getProperty name="mid" property="BK_Content" />
 			</div>
 
 			<div>

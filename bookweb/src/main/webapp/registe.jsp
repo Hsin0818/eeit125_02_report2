@@ -77,7 +77,7 @@ span {
 </head>
 
 <body>
-	<form action="./Register" method="post">
+	<form action="Register" method="post">
 		<fieldset>
 			<legend>會員註冊</legend>
 			<div class="a2">
@@ -122,6 +122,10 @@ span {
 			<br />
 			<div class="a9">
 				<label>E-mail:</label> <input type="email" name="mail" id="mail"
+					onblur=""> <span id="idsp7"></span><br />
+			</div><br>
+			<div class="a12">
+				<label>頭像:</label> <input type="file" name="pic" id="pic"
 					onblur=""> <span id="idsp7"></span><br />
 			</div>
 			<br />

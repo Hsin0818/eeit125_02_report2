@@ -61,7 +61,7 @@
 			</nav>
 		</div>
 		<!--  -->
-		<form action="./BookServlet" method="post">
+		<form action="./BookServlet1" method="post">
 			<div>
 				<input class="search-bar" type="text" name="searchbk" id="search"
 					placeholder="輸入名稱">
@@ -74,7 +74,6 @@
 			if (request.getParameter("searchbk") != null) {
 		%>
 		<p>
-			asdsa
 			<%!List<BookData> list;%>
 			<%!BookData data;%>
 			<%
@@ -82,7 +81,7 @@
 			list = (List) request.getSession(true).getAttribute("qaqget");
 			%>
 		
-		<form action="./BookServlet" method="post">
+		<form action="./BookServlet1" method="post">
 			<%
 				for (BookData data : list) {
 			%>
@@ -97,13 +96,13 @@
 					<th>&nbsp;</th>
 				</tr>
 				<tr>
-					<td><%=data.getBookid()%></td>
-					<td><%=data.getBookname()%></td>
-					<td><%=data.getBookauthor()%></td>
-					<td><%=data.getBookpublish()%></td>
-					<td><INPUT TYPE="TEXT" NAME="<%=data.getBookid()%>price"></td>
-					<td><INPUT TYPE="TEXT" NAME="<%=data.getBookid()%>qty"></td>
-					<td><button type="submit" value=<%=data.getBookid()%>
+					<td><%=data.getBK_ID()%></td>
+					<td><%=data.getBK_Name()%></td>
+					<td><%=data.getBK_Writer()%></td>
+					<td><%=data.getBK_Publish()%></td>
+					<td><INPUT TYPE="TEXT" NAME="<%=data.getBK_ID()%>price"></td>
+					<td><INPUT TYPE="TEXT" NAME="<%=data.getBK_ID()%>qty"></td>
+					<td><button type="submit" value=<%=data.getBK_ID()%>
 							name="setbk">刊登</button></td>
 				</tr>
 			</table>

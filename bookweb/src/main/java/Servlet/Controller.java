@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import Bean.ArticleBean;
+
 import DAO.ArticleDAO;
+import DAO.ArticleDAOInterface;
+import Service.ArticleService;
+import Service.ArticleServiceInterface;
+import model.ArticleBean;
 
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
@@ -21,9 +25,9 @@ public class Controller extends HttpServlet {
 	private static final String CONTENT_TYPE = "text/html; charset=UTF-8";
 	private static final String CHARSET_CODE = "UTF-8";
 
-	DataSource ds = null;
-	InitialContext ctxt = null;
-	Connection conn = null;
+//	DataSource ds = null;
+//	InitialContext ctxt = null;
+//	Connection conn = null;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,9 +39,9 @@ public class Controller extends HttpServlet {
 		response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 
 		try {
-			ctxt = new InitialContext();
-			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/BookDB");
-			conn = ds.getConnection();
+//			ctxt = new InitialContext();
+//			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/BookDB");
+//			conn = ds.getConnection();
 
 			//根據前端button submit的參數，分配處理的程式
 			if (request.getParameter("insertarticle") != null) {
@@ -47,15 +51,15 @@ public class Controller extends HttpServlet {
 			if (request.getParameter("deletearticle") != null) {
 				deletearticleprocess(request, response);}
 
-		} catch (NamingException | SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+//		} finally {
+//			try {
+//				if (conn != null)
+//					conn.close();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 		}
 
 	}
@@ -66,8 +70,8 @@ public class Controller extends HttpServlet {
 
 		String article_title = (String) request.getParameter("article_title");
 		String article_content = (String) request.getParameter("article_content");
-		ArticleDAO dao = new ArticleDAO(conn);
-		dao.insertArticle(new ArticleBean(article_title, article_content));
+		ArticleServiceInterface service = new ArticleService();
+		service.insertArticle(new ArticleBean(article_title, article_content));
 		response.sendRedirect("insertsuccess.jsp");
 	}
 
@@ -78,8 +82,8 @@ public class Controller extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("ID"));
 		String article_title = (String) request.getParameter("article_title");
 		String article_content = (String) request.getParameter("article_content");
-		ArticleDAO dao = new ArticleDAO(conn);
-		dao.editArticle(new ArticleBean(article_title, article_content), id);
+		ArticleServiceInterface service = new ArticleService();
+		service.editArticle(new ArticleBean(article_title, article_content), id);
 		response.sendRedirect("editsuccess.jsp");
 	}
 
@@ -88,8 +92,8 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 
 		int id = Integer.parseInt(request.getParameter("sendID"));
-		ArticleDAO dao = new ArticleDAO(conn);
-		dao.deleteArticle(id);
+		ArticleServiceInterface service = new ArticleService();
+		service.deleteArticle(id);
 		response.sendRedirect("deletesuccess.jsp");
 	}
 

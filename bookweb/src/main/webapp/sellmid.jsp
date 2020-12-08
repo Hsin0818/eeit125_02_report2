@@ -70,7 +70,7 @@
 			<button type="submit" name="">返回</button>
 			<br>
 		</form>
-		<form action="./BookServlet" method="post">
+		<form action="./BookServlet1" method="post">
 			<table border="2" width="100%">
 				<tr>
 					<th>編號</th>
