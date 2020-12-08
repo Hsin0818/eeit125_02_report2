@@ -12,7 +12,7 @@
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<spring.version>5.2.6.RELEASE</spring.version>
+		<spring.version>5.2.11.RELEASE</spring.version>
 	</properties>
 	<dependencies>
 
@@ -133,24 +133,12 @@
 			<artifactId>aopalliance</artifactId>
 			<version>1.0</version>
 		</dependency>
-
-
+		
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-impl</artifactId>
+			<version>1.2.5</version>
+		</dependency>
 
 	</dependencies> 
-
-
-	<build>
-		<finalName>bookweb</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.8</source><!-- source compile Java version -->
-					<target>1.8</target><!-- target compile Java version -->
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>

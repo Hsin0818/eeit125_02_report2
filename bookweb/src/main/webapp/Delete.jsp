@@ -10,6 +10,7 @@ response.setContentType("text/html;charset=UTF-8");
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <%@page import="collect.*"%>
+<%@page import="DAO.*"%>
 <jsp:useBean id="u" class="book.bean.CollectBean"></jsp:useBean>  
 <jsp:setProperty property="*" name="u"/>  
 

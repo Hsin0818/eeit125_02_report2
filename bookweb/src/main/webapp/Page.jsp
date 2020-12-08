@@ -1,5 +1,5 @@
-<%@page import="book.bean.*"%>
-<%@page import="collect.*"%>
+<%@page import="DAO.*"%>
+<%@page import="model.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -21,7 +21,7 @@ response.setContentType("text/html;charset=UTF-8");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<jsp:useBean id="b" class="book.bean.BookBean"></jsp:useBean>  
+<jsp:useBean id="b" class="model.BookBean"></jsp:useBean>  
 
 <title>書適圈</title>
     <link rel="stylesheet" href="bottle.css">
@@ -90,11 +90,11 @@ response.setContentType("text/html;charset=UTF-8");
 
 <% 
 	BookBean bookData = (BookBean)request.getAttribute("page1");
-	request.getSession(true).setAttribute("bkName", bookData.getBK_Name());
-	request.getSession(true).setAttribute("bkPic", bookData.getBK_Pic());
-	request.getSession(true).setAttribute("bk_ID", bookData.getBK_ID());
-	request.getSession(true).setAttribute("bkWriter", bookData.getBK_Writer());
-	request.getSession(true).setAttribute("bk_Publish", bookData.getBK_Publish());
+	request.getSession(true).setAttribute("bkName", bookData.getBk_Name());
+	request.getSession(true).setAttribute("bkPic", bookData.getBk_Pic());
+	request.getSession(true).setAttribute("bk_ID", bookData.getBk_ID());
+	request.getSession(true).setAttribute("bkWriter", bookData.getBk_Writer());
+	request.getSession(true).setAttribute("bk_Publish", bookData.getBk_Publish());
 	//request.setAttribute("bookData", bookData);
 %>
 
@@ -114,7 +114,7 @@ response.setContentType("text/html;charset=UTF-8");
                     <div class="col-sm-5">
 
                         <p class="s-corner">
-                        <img class="mainpic" alt="" src="<%=bookData.getBK_Pic() %>" height="390">
+                        <img class="mainpic" alt="" src="<%=bookData.getBk_Pic() %>" height="390">
                         </p>
                         <div class="detail">
                             <h6>詳細資訊：</h6>
@@ -138,21 +138,21 @@ response.setContentType("text/html;charset=UTF-8");
                     <div class="col-sm-7">
 
                         <div class="back">
-                            <h2 class="title"><%=bookData.getBK_Name() %></h2>
+                            <h2 class="title"><%=bookData.getBk_Name() %></h2>
                             <hr><br>
-                            <h5>作者：<%=bookData.getBK_Writer() %></h5>
-                            <h5>出版社：<%=bookData.getBK_Publish() %></h5>
-                            <h5>出版日期：<%=bookData.getBK_Time() %></h5>
+                            <h5>作者：<%=bookData.getBk_Writer() %></h5>
+                            <h5>出版社：<%=bookData.getBk_Publish() %></h5>
+                            <h5>出版日期：<%=bookData.getBk_Time() %></h5>
                             <br>
                             <figure>
                                 <h5>內容簡介：</h5>
-                               <%=bookData.getBK_Content() %>
+                               <%=bookData.getBk_Content() %>
                             </figure>
                           <form action="./SearchServlet" method="post">
                             <div class="collect">
                                 <img alt="點選收藏" src="Img/heartred.png" id="heart" width="25px">
-                                <button type="submit" name="pagecollect" class="btn btn-outline-danger btn-sm" value="<%=bookData.getBK_ID() %>">收藏本書</button>
-                                <button type="submit" name="update" class="btn btn-outline-info btn-sm" value="<%=bookData.getBK_ID() %>">修改書訊</button>
+                                <button type="submit" name="pagecollect" class="btn btn-outline-danger btn-sm" value="<%=bookData.getBk_ID() %>">收藏本書</button>
+                                <button type="submit" name="update" class="btn btn-outline-info btn-sm" value="<%=bookData.getBk_ID() %>">修改書訊</button>
                               </div>
                           </form>
 
@@ -174,7 +174,7 @@ response.setContentType("text/html;charset=UTF-8");
                         </div>
 
                         <form action=".\BookReportServlet">
-                          <button type="submit" name="bookreportBK_ID" style="margin-left: 100px; margin-top: 100px;" class="btn btn-lg btn-primary" value="<%=bookData.getBK_ID() %>">心得清單</button>
+                          <button type="submit" name="bookreportBK_ID" style="margin-left: 100px; margin-top: 100px;" class="btn btn-lg btn-primary" value="<%=bookData.getBk_ID() %>">心得清單</button>
                         </form>
 
                     </div>

@@ -1,5 +1,5 @@
-<%@page import="book.bean.*"%>
-<%@page import="collect.*"%>
+
+<%@page import="model.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -26,7 +26,7 @@ response.setContentType("text/html;charset=UTF-8");
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<jsp:useBean id="b" class="book.bean.BookBean"></jsp:useBean>
+<jsp:useBean id="b" class="model.BookBean"></jsp:useBean>
 
 <title>書適圈</title>
 <link rel="stylesheet" href="bottle.css">
@@ -106,20 +106,20 @@ response.setContentType("text/html;charset=UTF-8");
 						<h2 class="title">更新書目資訊：</h2>
 						<hr>
 						<br> <input type="hidden" name="id"
-							value="<%=bookData.getBK_ID()%>"> <span>書名：</sapn><input
-							type="text" name="bookname" value="<%=bookData.getBK_Name()%>"><br>
+							value="<%=bookData.getBk_ID()%>"> <span>書名：</sapn><input
+							type="text" name="bookname" value="<%=bookData.getBk_Name()%>"><br>
 							<br>
 						<span>作者：</sapn><input type="text" name="bookwriter"
-								value="<%=bookData.getBK_Writer()%>"><br> <br>
+								value="<%=bookData.getBk_Writer()%>"><br> <br>
 							<span>出版社：</sapn><input type="text" name="bookpublish"
-									value="<%=bookData.getBK_Publish()%>"><br> <br>
+									value="<%=bookData.getBk_Publish()%>"><br> <br>
 								<span>出版日期：</sapn><input type="text" name="booktime"
-										value="<%=bookData.getBK_Time()%>"><br> <br>
+										value="<%=bookData.getBk_Time()%>"><br> <br>
 										<figure> <span>內容簡介：</span>
 										<div class="context">
 
 											<textarea cols="100" rows="8" name="bookcontent">
-								<%=bookData.getBK_Content()%>
+								<%=bookData.getBk_Content()%>
 								</textarea>
 										</div>
 										</figure>

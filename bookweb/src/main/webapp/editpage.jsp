@@ -30,8 +30,12 @@
 	</div>
 	<br>
 	
+	<sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+     url="jdbc:sqlserver://10.31.25.125:1433;DatabaseName=BookDB"  
+     user="book"  password="qaq"/>  
+	
 	<!-- 根據使用者選取的ID取值 -->
-	<sql:query var="result" scope="request" dataSource="jdbc/BookDB">                
+	<sql:query var="result" scope="request" dataSource="${db}">                
                 SELECT * FROM NOVEL_ARTICLE WHERE ID=${param.sendID};
     </sql:query>	
     
