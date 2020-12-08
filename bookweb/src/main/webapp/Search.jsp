@@ -22,63 +22,50 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 <body>
 	<div class="container">
 		<header class="blog-header py-3">
-			<div class="row flex-nowrap justify-content-between align-items-center">
+			<div
+				class="row flex-nowrap justify-content-between align-items-center">
+
 				<div class="col-4 text-center">
 					<a class="blog-header-logo text-dark" href="#">書適圈</a>
 				</div>
 				<div class="col-4 d-flex justify-content-end align-items-center">
-					<form action=".\login.jsp">
-						<button type="submit" class="btn btn-sm btn-outline-secondary">登入</button>
-					</form>
+					<a class="btn btn-sm btn-outline-secondary" href="#">登入</a>
 				</div>
 			</div>
-        </header>
-      
-        <div class="nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-between">
-				<!-- <a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					圖書漂流瓶
-				</a>
-                <div class="dropdown-menu text-muted" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-muted" href="#">Action</a>
-                    <a class="dropdown-item text-muted" href="#">Another action</a>
-                    <a class="dropdown-item text-muted" href="#">Something else here</a>
-                </div>
-                <a class="p-2 text-muted" href="#">二手書交易系統</a>
-                <a class="p-2 text-muted" href="#">共讀趣／閱讀沙龍</a>
-				<a class="p-2 text-muted" href="#">討論區</a> -->
-				<form action=".\Search.jsp">
-					<button type="submit"  class="btn btn-link text-muted">圖書漂流瓶</button>
-				</form>
-				<form action=".\qaqmid.jsp">
-					<button type="submit"  class="btn btn-link text-muted">二手書交易系統</button>
-				</form>
-				<form action=".\index.jsp">
-					<button type="submit"  class="btn btn-link text-muted">共讀趣／閱讀沙龍</button>
-				</form>
-				<form action=".\mainpage.jsp">
-					<button type="submit"  class="btn btn-link text-muted">討論區</button>
-				</form>
-				<form action=".\BookReportServlet" method="post">
-                	<button type="submit"  class="btn btn-link text-muted">閱讀履歷</button>
-				</form>
-                <!-- <a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    閱讀履歷
-                </a>
-                <div class="dropdown-menu text-muted" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-muted" href="#">Action</a>
-                    <a class="dropdown-item text-muted" href="#">Another action</a>
-                    <a class="dropdown-item text-muted" href="#">Something else here</a>
-                </div> -->
-            </nav>
-        </div>
+		</header>
+
+		<div class="nav-scroller py-1 mb-2">
+			<nav class="nav d-flex justify-content-between">
+				<a class="nav-link dropdown-toggle text-muted" href="#"
+					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> 圖書漂流瓶 </a>
+				<div class="dropdown-menu text-muted"
+					aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item text-muted" href="#">Action</a> <a
+						class="dropdown-item text-muted" href="#">Another action</a> <a
+						class="dropdown-item text-muted" href="#">Something else here</a>
+				</div>
+				<a class="p-2 text-muted" href="#">二手書交易系統</a> <a
+					class="p-2 text-muted" href="#">共讀趣／閱讀沙龍</a> <a
+					class="p-2 text-muted" href="#">討論區</a> <a
+					class="nav-link dropdown-toggle text-muted" href="#"
+					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> 閱讀履歷 </a>
+				<div class="dropdown-menu text-muted"
+					aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item text-muted" href="#">Action</a> <a
+						class="dropdown-item text-muted" href="#">Another action</a> <a
+						class="dropdown-item text-muted" href="#">Something else here</a>
+				</div>
+			</nav>
+		</div>
 
 		<!-- 以上是導覽列，以下是主要內容 -->
 
 		<br>
 		<hr>
 		<br>
-		<form action="./SearchServlet" method="post">
+		<form action="searchBook" method="post">
 			<h3>輸入關鍵字：</h3>
 			<div class="form-inline">
 				<input class="form-control mr-sm-2" name="name" value=""
