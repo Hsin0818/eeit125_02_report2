@@ -145,7 +145,7 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_MbID" name="<%=reportData.getBR_ID()%>MbID" value="<%=reportData.getMember().getmB_ID()%>">
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkID" name="<%=reportData.getBR_ID()%>BkID" value="<%=reportData.getBook().getBk_ID()%>">
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BrContent" name="<%=reportData.getBR_ID()%>BrContent" value="<%=reportData.getBR_Content()%>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkWriter" name="<%=reportData.getBR_ID()%>BkWriter" value="<%=reportData.getBook().getBk_Writer() %>">
+						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkWriter" name="<%=reportData.getBR_ID()%>BkWriter" value="<%=reportData.getBook().getBk_Author() %>">
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkPublish" name="<%=reportData.getBR_ID()%>BkPublish" value="<%=reportData.getBook().getBk_Publish() %>">
 						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BrScore" name="<%=reportData.getBR_ID()%>BrScore" value="<%=reportData.getBR_Score()%>">
 						<div class="d-flex justify-content-between align-items-center">
