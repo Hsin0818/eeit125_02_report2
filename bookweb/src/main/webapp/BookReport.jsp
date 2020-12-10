@@ -139,22 +139,22 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 					</svg>
 					<div class="card-body">
 						<p><%=reportData.getBook().getBk_Name()%><p>
-						<p class="card-text">評分：<%=reportData.getBR_Score()%></p>
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_pic" name="<%=reportData.getBR_ID()%>BkPic" value="<%=reportData.getBook().getBk_Pic()%>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkName" name="<%=reportData.getBR_ID()%>BkName" value="<%=reportData.getBook().getBk_Name()%>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_MbID" name="<%=reportData.getBR_ID()%>MbID" value="<%=reportData.getMember().getmB_ID()%>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkID" name="<%=reportData.getBR_ID()%>BkID" value="<%=reportData.getBook().getBk_ID()%>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BrContent" name="<%=reportData.getBR_ID()%>BrContent" value="<%=reportData.getBR_Content()%>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkWriter" name="<%=reportData.getBR_ID()%>BkWriter" value="<%=reportData.getBook().getBk_Author() %>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BkPublish" name="<%=reportData.getBR_ID()%>BkPublish" value="<%=reportData.getBook().getBk_Publish() %>">
-						<input type="hidden" id = "<%=reportData.getBR_ID()%>edit_BrScore" name="<%=reportData.getBR_ID()%>BrScore" value="<%=reportData.getBR_Score()%>">
+						<p class="card-text">評分：<%=reportData.getBr_Score()%></p>
+						<input type="hidden" id = "<%=reportData.getBr_ID()%>edit_pic" name="<%=reportData.getBr_ID()%>BkPic" value="<%=reportData.getBook().getBk_Pic()%>">
+						<input type="hidden" id = "<%=reportData.getBr_ID()%>edit_BkName" name="<%=reportData.getBr_ID()%>BkName" value="<%=reportData.getBook().getBk_Name()%>">
+						<input type="hidden" id = "<%=reportData.getBr_ID()%>edit_MbID" name="<%=reportData.getBr_ID()%>MbID" value="<%=reportData.getMember().getmB_ID()%>">
+						<input type="hidden" id = "<%=reportData.getBr_ID()%>edit_BkID" name="<%=reportData.getBr_ID()%>BkID" value="<%=reportData.getBook().getBk_ID()%>">
+						<input type="hidden" id = "<%=reportData.getBr_ID()%>edit_BrContent" name="<%=reportData.getBr_ID()%>BrContent" value="<%=reportData.getBr_Content()%>">
+						<input type="hidden" id = "<%=reportData.getBr_ID()%>edit_BkWriter" name="<%=reportData.getBr_ID()%>BkWriter" value="<%=reportData.getBook().getBk_Author()%>">
+						<input type="hidden" id = "<%=reportData.getBr_ID()%>edit_BkPublish" name="<%=reportData.getBr_ID()%>BkPublish" value="<%=reportData.getBook().getBk_Publish()%>">
+						<input type="hidden" id = "<%=reportData.getBr_ID()%>edit_BrScore" name="<%=reportData.getBr_ID()%>BrScore" value="<%=reportData.getBr_Score()%>">
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="btn-group">		
-								<!--<button type="submit" class="btn btn-sm btn-outline-secondary" name="viewBookReport" value="<%=reportData.getBR_ID() %>">View</button>-->
-								<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#editModal" id = "editFirst"  name = "editButtons" value = "<%=reportData.getBR_ID()%>" >Edit</button>
-								<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#deletModal" id = "deleteFirst"  name = "beleteButtons" value = "<%=reportData.getBR_ID()%>" >Delete</button>
+								<!--<button type="submit" class="btn btn-sm btn-outline-secondary" name="viewBookReport" value="<%=reportData.getBr_ID() %>">View</button>-->
+								<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#editModal" id = "editFirst"  name = "editButtons" value = "<%=reportData.getBr_ID()%>" >Edit</button>
+								<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#deletModal" id = "deleteFirst"  name = "beleteButtons" value = "<%=reportData.getBr_ID()%>" >Delete</button>
 							</div>
-							<small class="text-muted">創建日期：<br><%=reportData.getBR_DateTime()%></small>
+							<small class="text-muted">創建日期：<br><%=reportData.getBr_DateTime()%></small>
 						</div>
 					</div>
 					</div>

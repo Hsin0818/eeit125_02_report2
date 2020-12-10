@@ -17,7 +17,7 @@ public class BookBean {
 	String bk_Name;
 	String bk_Transname;
 	String bk_Author;
-	String bk_Editor;
+	
 	String bk_Translator;
 	String bk_Publish;
 	String bk_ISBN;
@@ -26,21 +26,21 @@ public class BookBean {
 	String bk_Language;
 	String bk_Content;
 	Integer bk_Page;
-	String bk_Reader;
+	
 	
 	public BookBean() {
 		super();
 	}
 
-	public BookBean(Integer bk_ID, String bk_Name, String bk_Transname, String bk_Author, String bk_Editor,
+	public BookBean(Integer bk_ID, String bk_Name, String bk_Transname, String bk_Author,
 			String bk_Translator, String bk_Publish, String bk_ISBN, Date bk_Date, String bk_Pic, String bk_Language,
-			String bk_Content, Integer bk_Page, String bk_Reader) {
+			String bk_Content, Integer bk_Page) {
 		super();
 		this.bk_ID = bk_ID;
 		this.bk_Name = bk_Name;
 		this.bk_Transname = bk_Transname;
 		this.bk_Author = bk_Author;
-		this.bk_Editor = bk_Editor;
+		
 		this.bk_Translator = bk_Translator;
 		this.bk_Publish = bk_Publish;
 		this.bk_ISBN = bk_ISBN;
@@ -49,7 +49,7 @@ public class BookBean {
 		this.bk_Language = bk_Language;
 		this.bk_Content = bk_Content;
 		this.bk_Page = bk_Page;
-		this.bk_Reader = bk_Reader;
+		
 	}
 
 	
@@ -85,13 +85,7 @@ public class BookBean {
 		this.bk_Author = bk_Author;
 	}
 
-	public String getBk_Editor() {
-		return bk_Editor;
-	}
-
-	public void setBk_Editor(String bk_Editor) {
-		this.bk_Editor = bk_Editor;
-	}
+	
 
 	public String getBk_Translator() {
 		return bk_Translator;
@@ -157,13 +151,7 @@ public class BookBean {
 		this.bk_Page = bk_Page;
 	}
 
-	public String getBk_Reader() {
-		return bk_Reader;
-	}
-
-	public void setBk_Reader(String bk_Reader) {
-		this.bk_Reader = bk_Reader;
-	}
+	
 
 	@Override
 	public String toString() {
@@ -176,8 +164,6 @@ public class BookBean {
 		builder.append(bk_Transname);
 		builder.append(", bk_Author=");
 		builder.append(bk_Author);
-		builder.append(", bk_Editor=");
-		builder.append(bk_Editor);
 		builder.append(", bk_Translator=");
 		builder.append(bk_Translator);
 		builder.append(", bk_Publish=");
@@ -194,8 +180,6 @@ public class BookBean {
 		builder.append(bk_Content);
 		builder.append(", bk_Page=");
 		builder.append(bk_Page);
-		builder.append(", bk_Reader=");
-		builder.append(bk_Reader);
 		builder.append("]");
 		return builder.toString();
 	}

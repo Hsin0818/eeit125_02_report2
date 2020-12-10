@@ -153,8 +153,8 @@ public class BookRebortDAO {
 			session = factory.getCurrentSession();
 			tx = session.beginTransaction();
 			BookReportBean bookReport = session.get(BookReportBean.class, br_ID);
-			bookReport.setBR_Score(br_Score);
-			bookReport.setBR_Content(br_Content);
+			bookReport.setBr_Score(br_Score);
+			bookReport.setBr_Content(br_Content);
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
