@@ -1,6 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="BookReport.*" import="java.util.List"%>
+	pageEncoding="UTF-8" import="BookReport.*" import="java.util.List" import="model.*"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 response.setContentType("text/html;charset=UTF-8");
@@ -139,36 +139,36 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 								<p><%=reportData.getBook().getBk_Name()%>
 								<p>
 								<p class="card-text">
-									評分：<%=reportData.getBR_Score()%></p>
+									評分：<%=reportData.getBr_Score()%></p>
 								<input type="hidden" id="edit_pic"
-									name="<%=reportData.getBR_ID()%>BkPic"
+									name="<%=reportData.getBr_ID()%>BkPic"
 									value="<%=reportData.getBook().getBk_Pic()%>"> <input
 									type="hidden" id="edit_BkName"
-									name="<%=reportData.getBR_ID()%>BkName"
+									name="<%=reportData.getBr_ID()%>BkName"
 									value="<%=reportData.getBook().getBk_Name()%>"> <input
 									type="hidden" id="edit_MbID"
-									name="<%=reportData.getBR_ID()%>MbID"
+									name="<%=reportData.getBr_ID()%>MbID"
 									value="<%=reportData.getMember().getmB_ID()%>"> <input
 									type="hidden" id="edit_BkID" name="BkID"
 									value="<%=reportData.getBook().getBk_ID()%>"> <input
-									type="hidden" id="<%=reportData.getBR_ID()%>edit_BrContent"
-									name="<%=reportData.getBR_ID()%>BrContent"
-									value="<%=reportData.getBR_Content()%>"> <input
+									type="hidden" id="<%=reportData.getBr_ID()%>edit_BrContent"
+									name="<%=reportData.getBr_ID()%>BrContent"
+									value="<%=reportData.getBr_Content()%>"> <input
 									type="hidden" id="edit_BkWriter"
-									name="<%=reportData.getBR_ID()%>BkWriter"
-									value="<%=reportData.getBook().getBk_Writer()%>"> <input
+									name="<%=reportData.getBr_ID()%>BkWriter"
+									value="<%=reportData.getBook().getBk_Author()%>"> <input
 									type="hidden" id="edit_BkPublish"
-									name="<%=reportData.getBR_ID()%>BkPublish"
+									name="<%=reportData.getBr_ID()%>BkPublish"
 									value="<%=reportData.getBook().getBk_Publish()%>"> <input
-									type="hidden" id="<%=reportData.getBR_ID()%>edit_BrScore"
-									name="<%=reportData.getBR_ID()%>BrScore"
-									value="<%=reportData.getBR_Score()%>">
+									type="hidden" id="<%=reportData.getBr_ID()%>edit_BrScore"
+									name="<%=reportData.getBr_ID()%>BrScore"
+									value="<%=reportData.getBr_Score()%>">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 										<button type="submit" class="btn btn-sm btn-outline-link"
-											name="viewBookReport" value="<%=reportData.getBR_ID()%>">View</button>
+											name="viewBookReport" value="<%=reportData.getBr_ID()%>">View</button>
 									</div>
-									<small class="text-muted">創建日期：<br><%=reportData.getBR_DateTime()%></small>
+									<small class="text-muted">創建日期：<br><%=reportData.getBr_DateTime()%></small>
 								</div>
 							</div>
 						</div>
@@ -235,9 +235,8 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 					$("#BkWriterE").html("作者："+"<%=request.getSession(true).getAttribute("bkWriter")%>");
 					$("#BkPublishE").html("出版社："+"<%=request.getSession(true).getAttribute("bk_Publish")%>");
 					$("#MbId").val($("#edit_MbID").val());
-					$("#insertButtons").val("<%=request.getSession(true).getAttribute("bk_ID")%>
-		");
-						});
+					$("#insertButtons").val("<%=request.getSession(true).getAttribute("bk_ID")%>");
+				});
 	</script>
 
 
