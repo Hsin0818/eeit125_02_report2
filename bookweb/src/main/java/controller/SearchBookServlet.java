@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.BookBean;
-import model.Book_COLLECTBean;
 import Service.SearchService;
 import Service.SearchServiceImpl;
+import model.BookBean;
+import model.Book_COLLECTBean;
 
 @WebServlet("/searchBook")
 public class SearchBookServlet extends HttpServlet {
@@ -174,8 +174,8 @@ public class SearchBookServlet extends HttpServlet {
 		int bk_Page = 0;
 		String bk_Reader = null;
 
-		BookBean result = new BookBean(bk_ID, bk_Name, bk_Transname, bk_Author, bk_Editor, bk_Translator, bk_Publish,
-				bk_ISBN, bk_Date, bk_Pic, bk_Language, bk_Content, bk_Page, bk_Reader);
+		BookBean result = new BookBean(bk_ID, bk_Name, bk_Transname, bk_Author, bk_Translator, bk_Publish,
+				bk_ISBN, bk_Date, bk_Pic, bk_Language, bk_Content, bk_Page);
 		SearchService ss = new SearchServiceImpl();
 		int count = ss.updatebk(result);
 
