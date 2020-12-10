@@ -30,6 +30,9 @@
 		<mapping class="model.BookReportBean" />
 		<mapping class="model.BookBean" />
 		<mapping class="model.MemberBean" />
-
+		<mapping class="model.Book_COLLECTBean"></mapping>
+		<mapping class="model.TypeBean"></mapping>
+		<mapping class="model.ArticleBean"></mapping>
+		<mapping class="model.ActBean" />
 	</session-factory>
 </hibernate-configuration>

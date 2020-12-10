@@ -1,6 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="BookReport.*" import="java.util.List"%>
+	pageEncoding="UTF-8" import="BookReport.*" import="java.util.List" import="model.*"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 response.setContentType("text/html;charset=UTF-8");
@@ -156,7 +156,7 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 									value="<%=reportData.getBR_Content()%>"> <input
 									type="hidden" id="edit_BkWriter"
 									name="<%=reportData.getBR_ID()%>BkWriter"
-									value="<%=reportData.getBook().getBk_Writer()%>"> <input
+									value="<%=reportData.getBook().getBk_Author() %>"> <input
 									type="hidden" id="edit_BkPublish"
 									name="<%=reportData.getBR_ID()%>BkPublish"
 									value="<%=reportData.getBook().getBk_Publish()%>"> <input
@@ -235,9 +235,8 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 					$("#BkWriterE").html("作者："+"<%=request.getSession(true).getAttribute("bkWriter")%>");
 					$("#BkPublishE").html("出版社："+"<%=request.getSession(true).getAttribute("bk_Publish")%>");
 					$("#MbId").val($("#edit_MbID").val());
-					$("#insertButtons").val("<%=request.getSession(true).getAttribute("bk_ID")%>
-		");
-						});
+					$("#insertButtons").val("<%=request.getSession(true).getAttribute("bk_ID")%>");
+				});
 	</script>
 
 

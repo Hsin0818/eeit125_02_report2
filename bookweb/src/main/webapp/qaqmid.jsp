@@ -76,7 +76,7 @@
 			<button type="submit" name="">我的清單</button>
 			<br>
 		</form>
-		<form action="./BookServlet" method="post">
+		<form action="./BookServlet1" method="post">
 			<table border="2" width="70%">
 				<tr>
 					<th>&nbsp;</th>
