@@ -7,8 +7,8 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
 		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
 		<property name="connection.url">jdbc:sqlserver://eeit125g2.ddns.net:1433;DatabaseName=BookDB</property>
-		<property name="connection.username">sa</property>
-		<property name="connection.password">Mm142325094</property>
+		<property name="connection.username">book</property>
+		<property name="connection.password">qaq</property>
 
 		<!-- 2. 其他與資料存取有關的設定 -->
 		<!-- 自動產生資料庫的Schema -->
@@ -30,6 +30,9 @@
 		<mapping class="model.BookReportBean" />
 		<mapping class="model.BookBean" />
 		<mapping class="model.MemberBean" />
+		<mapping class="model.Book_COLLECTBean"></mapping>
+		<mapping class="model.TypeBean"></mapping>
+		<mapping class="model.ArticleBean"></mapping>
 		<mapping class="model.ActBean" />
 	</session-factory>
 </hibernate-configuration>

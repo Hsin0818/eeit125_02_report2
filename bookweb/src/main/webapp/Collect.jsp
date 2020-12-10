@@ -1,18 +1,19 @@
 
-<%@page import="model.*"%>
-<%@page import="Service.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false"%>
-<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "java.io.*,java.util.*,java.sql.*,model.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
 <%
 request.setCharacterEncoding("UTF-8");
 response.setContentType("text/html;charset=UTF-8");
-%>
+response.setHeader("Cache-Control","no-cache"); // HTTP 1.1
+response.setHeader("Pragma","no-cache"); // HTTP 1.0
+response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
+%>    
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -27,7 +28,7 @@ response.setContentType("text/html;charset=UTF-8");
     <link rel="stylesheet" href="bottle.css">
 </head>
 <body>
-<form action="./SearchServlet" method="post">
+<form action="searchBook" method="post">
     <div class="container">
         <header class="blog-header py-3">
           <div class="row flex-nowrap justify-content-between align-items-center">
@@ -68,8 +69,7 @@ response.setContentType("text/html;charset=UTF-8");
                 <!-- 以上是導覽列，以下是主要內容 -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<%
-	List<BookBean> user = (List<BookBean>) request.getAttribute("list");
-	request.setAttribute("list", user);
+	List<Book_COLLECTBean> userlist = (List<Book_COLLECTBean>) request.getAttribute("result");
 	%>
                 <br>
                 <hr>
@@ -81,32 +81,38 @@ response.setContentType("text/html;charset=UTF-8");
         <h3>收藏清單：</h3>
         <br>
        
-<c:forEach var="row" items="${list}">
-
+	<%
+	for (Book_COLLECTBean listData : userlist) {
+		if (listData == null) {
+					break;
+				}
+					%>       
+       
           <div class="book">
-              <img class="itemcov" alt="" src="${row.getBK_Pic()}" height="190">
+           <img class="itemcov" alt="" src="<%=listData.getBook().getBk_Pic()%>" height="190">
            
        <h3>
-             ${row.getBK_Name()}
+			<%=listData.getBook().getBk_Name() %>
        </h3>
 
-		作者：${row.getBK_Writer()}<br>
-		出版社：${row.getBK_Publish()}
-		${row.getBK_ID()}
+		作者：<%=listData.getBook().getBk_Author() %><br>
+		出版社：<%=listData.getBook().getBk_Publish() %>
+		<%=listData.getBook().getBk_ID() %>
 		
 		<br>
-		出版日期：${row.getBK_Time()}
+		出版日期：<%=listData.getBook().getBk_Date() %>
 		<br>
 		
-		<p>${row.getBK_Content()}</p>
+		<p><%=listData.getBook().getBk_Content() %></p>
+		<p><%=listData.getBc_ID() %>
 		
 		<div class="collect">
-		<button type="submit" name="delete" class="btn btn-outline-danger btn-sm" value="${row.getBK_ID()}">取消收藏</button>
+		<button type="submit" name="delete" class="btn btn-outline-danger btn-sm" value="<%=listData.getBc_ID() %>">取消收藏</button>
 		</div>  
-		
+					<%
+						}
+					%>	
 		</div>
-	
-</c:forEach>
 
 </div>
 </form>
