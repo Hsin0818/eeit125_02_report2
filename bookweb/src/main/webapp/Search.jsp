@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-response.setContentType("text/html;charset=UTF-8");
+	response.setContentType("text/html;charset=UTF-8");
 response.setHeader("Cache-Control", "no-cache"); // HTTP 1.1
 response.setHeader("Pragma", "no-cache"); // HTTP 1.0
 response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
@@ -29,34 +29,58 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 					<a class="blog-header-logo text-dark" href="#">書適圈</a>
 				</div>
 				<div class="col-4 d-flex justify-content-end align-items-center">
-					<a class="btn btn-sm btn-outline-secondary" href="#">登入</a>
+					<form action=".\login.jsp">
+						<button type="submit" class="btn btn-sm btn-outline-secondary">登入</button>
+					</form>
 				</div>
 			</div>
 		</header>
 
 		<div class="nav-scroller py-1 mb-2">
 			<nav class="nav d-flex justify-content-between">
-				<a class="nav-link dropdown-toggle text-muted" href="#"
-					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false"> 圖書漂流瓶 </a>
-				<div class="dropdown-menu text-muted"
-					aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item text-muted" href="#">Action</a> <a
-						class="dropdown-item text-muted" href="#">Another action</a> <a
-						class="dropdown-item text-muted" href="#">Something else here</a>
-				</div>
-				<a class="p-2 text-muted" href="#">二手書交易系統</a> <a
-					class="p-2 text-muted" href="#">共讀趣／閱讀沙龍</a> <a
-					class="p-2 text-muted" href="#">討論區</a> <a
-					class="nav-link dropdown-toggle text-muted" href="#"
-					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false"> 閱讀履歷 </a>
-				<div class="dropdown-menu text-muted"
-					aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item text-muted" href="#">Action</a> <a
-						class="dropdown-item text-muted" href="#">Another action</a> <a
-						class="dropdown-item text-muted" href="#">Something else here</a>
-				</div>
+				<!-- 				<a class="nav-link dropdown-toggle text-muted" href="#" -->
+				<!-- 					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" -->
+				<!-- 					aria-haspopup="true" aria-expanded="false"> 圖書漂流瓶 </a> -->
+				<!-- 				<div class="dropdown-menu text-muted" -->
+				<!-- 					aria-labelledby="navbarDropdownMenuLink"> -->
+				<!-- 					<a class="dropdown-item text-muted" href="#">Action</a> <a -->
+				<!-- 						class="dropdown-item text-muted" href="#">Another action</a> <a -->
+				<!-- 						class="dropdown-item text-muted" href="#">Something else here</a> -->
+				<!-- 				</div> -->
+				<!-- 				<a class="p-2 text-muted" href="#">二手書交易系統</a> <a -->
+				<!-- 					class="p-2 text-muted" href="#">共讀趣／閱讀沙龍</a> <a -->
+				<!-- 					class="p-2 text-muted" href="#">討論區</a> <a -->
+
+				<form action=".\Search.jsp">
+					<button type="submit" class="btn btn-link text-muted">圖書漂流瓶</button>
+				</form>
+				<form action=".\qaqmid.jsp">
+					<button type="submit" class="btn btn-link text-muted">二手書交易系統</button>
+				</form>
+				<form action=".\ActHomepage.jsp">
+					<button type="submit" class="btn btn-link text-muted">共讀趣／閱讀沙龍</button>
+				</form>
+				<form action=".\mainpage.jsp">
+					<button type="submit" class="btn btn-link text-muted">討論區</button>
+				</form>
+				<form action=".\BookReportServlet" method="post">
+					<button type="submit" class="btn btn-link text-muted">閱讀履歷</button>
+				</form>
+
+
+
+
+
+
+				<!-- 					class="nav-link dropdown-toggle text-muted" href="#" -->
+				<!-- 					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" -->
+				<!-- 					aria-haspopup="true" aria-expanded="false"> 閱讀履歷 </a> -->
+				<!-- 				<div class="dropdown-menu text-muted" -->
+				<!-- 					aria-labelledby="navbarDropdownMenuLink"> -->
+				<!-- 					<a class="dropdown-item text-muted" href="#">Action</a> <a -->
+				<!-- 						class="dropdown-item text-muted" href="#">Another action</a> <a -->
+				<!-- 						class="dropdown-item text-muted" href="#">Something else here</a> -->
+				<!-- 				</div> -->
 			</nav>
 		</div>
 
@@ -89,33 +113,32 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 
 			<div class="col-sm-4">
 				<div class="btn-group-toggle" data-toggle="buttons">
-				<button type="button" class="btn btn-primary btn-lg">文學創作</button>
-				<br>
-				<br>
-				<p class="btn btn-outline-primary">
-					<input type="checkbox" name="c" value="" /> 詩
-				</p>
-				<p class="btn btn-outline-primary">
-					<input type="checkbox" name="c" value="" /> 散文
-				</p>
-				<p class="btn btn-outline-primary">
-					<input type="checkbox" name="c" value="" /> 戀愛/言情 小說
-				</p>
-				<p class="btn btn-outline-primary">
-					<input type="checkbox" name="c" value="" /> 武俠/歷史 小說
-				</p>
-				<p class="btn btn-outline-primary">
-					<input type="checkbox" name="c" value="" /> 推理/驚悚 小說
-				</p>
-				<p class="btn btn-outline-primary">
-					<input type="checkbox" name="c" value="" /> 科幻/奇幻 小說
-				</p>
-				<p class="btn btn-outline-primary">
-					<input type="checkbox" name="c" value="" /> 溫馨/療癒 小說
-				</p>
-				<p class="btn btn-outline-primary">
-					<input type="checkbox" name="c" value="" /> 翻譯文學
-				</p>
+					<button type="button" class="btn btn-primary btn-lg">文學創作</button>
+					<br> <br>
+					<p class="btn btn-outline-primary">
+						<input type="checkbox" name="c" value="" /> 詩
+					</p>
+					<p class="btn btn-outline-primary">
+						<input type="checkbox" name="c" value="" /> 散文
+					</p>
+					<p class="btn btn-outline-primary">
+						<input type="checkbox" name="c" value="" /> 戀愛/言情 小說
+					</p>
+					<p class="btn btn-outline-primary">
+						<input type="checkbox" name="c" value="" /> 武俠/歷史 小說
+					</p>
+					<p class="btn btn-outline-primary">
+						<input type="checkbox" name="c" value="" /> 推理/驚悚 小說
+					</p>
+					<p class="btn btn-outline-primary">
+						<input type="checkbox" name="c" value="" /> 科幻/奇幻 小說
+					</p>
+					<p class="btn btn-outline-primary">
+						<input type="checkbox" name="c" value="" /> 溫馨/療癒 小說
+					</p>
+					<p class="btn btn-outline-primary">
+						<input type="checkbox" name="c" value="" /> 翻譯文學
+					</p>
 				</div>
 				<hr>
 
@@ -124,8 +147,7 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 				<div class="btn-group-toggle" data-toggle="buttons">
 					<label class="btn btn-warning active btn-lg"> <input
 						type="checkbox" checked> 人文社會
-					</label> <br>
-					<br>
+					</label> <br> <br>
 					<p class="btn btn-outline-warning">
 						<input type="checkbox" name="b" value="" /> 政治/軍事
 					</p>
@@ -164,30 +186,29 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 
 			<div class="col-sm-4">
 				<div class="btn-group-toggle" data-toggle="buttons">
-				<button type="button" class="btn btn-danger btn-lg">圖文漫畫</button>
-				<br>
-				<br>
-				<p class="btn btn-outline-danger">
-					<input type="checkbox" name="b" value="" /> 插畫集
-				</p>
-				<p class="btn btn-outline-danger">
-					<input type="checkbox" name="b" value="" /> 各式圖鑑
-				</p>
-				<p class="btn btn-outline-danger">
-					<input type="checkbox" name="b" value="" /> 戀愛/言情 漫畫
-				</p>
-				<p class="btn btn-outline-danger">
-					<input type="checkbox" name="b" value="" /> 科幻/奇幻 漫畫
-				</p>
-				<p class="btn btn-outline-danger">
-					<input type="checkbox" name="b" value="" /> 戰鬥/冒險 漫畫
-				</p>
-				<p class="btn btn-outline-danger">
-					<input type="checkbox" name="b" value="" /> 推理/驚悚 漫畫
-				</p>
-				<p class="btn btn-outline-danger">
-					<input type="checkbox" name="b" value="" /> 運動/競技 漫畫
-				</p>
+					<button type="button" class="btn btn-danger btn-lg">圖文漫畫</button>
+					<br> <br>
+					<p class="btn btn-outline-danger">
+						<input type="checkbox" name="b" value="" /> 插畫集
+					</p>
+					<p class="btn btn-outline-danger">
+						<input type="checkbox" name="b" value="" /> 各式圖鑑
+					</p>
+					<p class="btn btn-outline-danger">
+						<input type="checkbox" name="b" value="" /> 戀愛/言情 漫畫
+					</p>
+					<p class="btn btn-outline-danger">
+						<input type="checkbox" name="b" value="" /> 科幻/奇幻 漫畫
+					</p>
+					<p class="btn btn-outline-danger">
+						<input type="checkbox" name="b" value="" /> 戰鬥/冒險 漫畫
+					</p>
+					<p class="btn btn-outline-danger">
+						<input type="checkbox" name="b" value="" /> 推理/驚悚 漫畫
+					</p>
+					<p class="btn btn-outline-danger">
+						<input type="checkbox" name="b" value="" /> 運動/競技 漫畫
+					</p>
 				</div>
 			</div>
 
@@ -196,8 +217,7 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 				<div class="btn-group-toggle" data-toggle="buttons">
 					<label class="btn btn-secondary active btn-lg"> <input
 						type="checkbox" checked> 商業理財
-					</label> <br>
-					<br>
+					</label> <br> <br>
 					<p class="btn btn-outline-secondary">
 						<input type="checkbox" name="b" value="" /> 創業
 					</p>

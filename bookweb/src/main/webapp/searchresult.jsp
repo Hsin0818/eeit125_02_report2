@@ -36,7 +36,7 @@ width:200px;
 	</div>	
 	
 	<sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
-     url="jdbc:sqlserver://10.31.25.125:1433;DatabaseName=BookDB"  
+     url="jdbc:sqlserver://eeit125g2.ddns.net:1433;DatabaseName=BookDB"  
      user="book"  password="qaq"/>  
 	
 	<sql:query var="result" scope="request" dataSource="${db}">                

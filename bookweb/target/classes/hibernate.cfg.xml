@@ -35,7 +35,6 @@
 		<mapping class="model.ArticleBean"></mapping>
 		<mapping class="model.ActBean" />
 		<mapping class="shopping.Book_Store" />
-		<mapping class="shopping.BookData" />
 		<mapping class="shopping.BookDAO" />
 	</session-factory>
 </hibernate-configuration>

@@ -15,6 +15,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import model.BookBean;
+import utils.HibernateUtils;
+
 public class BookDAO {
 
 //	private Connection conn;
@@ -33,13 +36,13 @@ public class BookDAO {
 //	}
 	
 	@SuppressWarnings("unchecked")
-	public BookData selectBookID(int id) {
+	public BookBean selectBookID(int id) {
 		try {
 			session = factory.getCurrentSession();
 			tx = session.beginTransaction();
-			String hql = "FROM BookData a WHERE a.BK_ID = :bkid";
-			Query<BookData> query = session.createQuery(hql);
-			BookData data = query.setParameter("bkid", id).getSingleResult();
+			String hql = "FROM BookBean a WHERE a.bk_ID = :bkid";
+			Query<BookBean> query = session.createQuery(hql);
+			BookBean data = query.setParameter("bkid", id).getSingleResult();
 			tx.commit();
 			System.out.println("Success");
 			return data;
@@ -168,15 +171,15 @@ public class BookDAO {
 
 	// List<BookData> listBookData()
 	@SuppressWarnings("unchecked")
-	public List<BookData> listBookData(String Bookname) {
+	public List<BookBean> listBookData(String Bookname) {
 		
 		
-		List<BookData> list = null;
+		List<BookBean> list = null;
 		try {
 			session = factory.getCurrentSession();
 			tx = session.beginTransaction();
-			String hql = "From BookData a Where a.BK_Name like :bkname";
-			Query<BookData> query = session.createQuery(hql);
+			String hql = "From BookBean a Where a.bk_Name like :bkname";
+			Query<BookBean> query = session.createQuery(hql);
 			list = query.setParameter("bkname", "%" + Bookname + "%").getResultList();
 			tx.commit();
 			System.out.println("Success");

@@ -2,9 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<sql:setDataSource var="db" dataSource="jdbc/BookDB" />
+<sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+     url="jdbc:sqlserver://eeit125g2.ddns.net:1433;DatabaseName=BookDB"  
+     user="book"  password="qaq"/>  
 <sql:query
-	sql="select TOP(20) BK_ID, BK_Name, BK_Writer, BK_Pic from BOOK"
+	sql="select TOP(20) bk_ID, bk_Name, bk_Author, bk_Pic from BooK"
 	dataSource="${db}" var="rs" />
 <!DOCTYPE html>
 <html>
@@ -21,7 +23,8 @@
 <body>
 	<div class="container">
 		<header class="blog-header py-3">
-			<div class="row flex-nowrap justify-content-between align-items-center">
+			<div
+				class="row flex-nowrap justify-content-between align-items-center">
 				<div class="col-4 text-center">
 					<a class="blog-header-logo text-dark" href="#">書適圈</a>
 				</div>
@@ -31,10 +34,10 @@
 					</form>
 				</div>
 			</div>
-        </header>
-      
-        <div class="nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-between">
+		</header>
+
+		<div class="nav-scroller py-1 mb-2">
+			<nav class="nav d-flex justify-content-between">
 				<!-- <a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					圖書漂流瓶
 				</a>
@@ -47,21 +50,21 @@
                 <a class="p-2 text-muted" href="#">共讀趣／閱讀沙龍</a>
 				<a class="p-2 text-muted" href="#">討論區</a> -->
 				<form action=".\Search.jsp">
-					<button type="submit"  class="btn btn-link text-muted">圖書漂流瓶</button>
+					<button type="submit" class="btn btn-link text-muted">圖書漂流瓶</button>
 				</form>
 				<form action=".\qaqmid.jsp">
-					<button type="submit"  class="btn btn-link text-muted">二手書交易系統</button>
+					<button type="submit" class="btn btn-link text-muted">二手書交易系統</button>
 				</form>
-				<form action=".\index.jsp">
-					<button type="submit"  class="btn btn-link text-muted">共讀趣／閱讀沙龍</button>
+				<form action=".\ActHomepage.jsp">
+					<button type="submit" class="btn btn-link text-muted">共讀趣／閱讀沙龍</button>
 				</form>
 				<form action=".\mainpage.jsp">
-					<button type="submit"  class="btn btn-link text-muted">討論區</button>
+					<button type="submit" class="btn btn-link text-muted">討論區</button>
 				</form>
 				<form action=".\BookReportServlet" method="post">
-                	<button type="submit"  class="btn btn-link text-muted">閱讀履歷</button>
+					<button type="submit" class="btn btn-link text-muted">閱讀履歷</button>
 				</form>
-                <!-- <a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<!-- <a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     閱讀履歷
                 </a>
                 <div class="dropdown-menu text-muted" aria-labelledby="navbarDropdownMenuLink">
@@ -69,8 +72,8 @@
                     <a class="dropdown-item text-muted" href="#">Another action</a>
                     <a class="dropdown-item text-muted" href="#">Something else here</a>
                 </div> -->
-            </nav>
-        </div>
+			</nav>
+		</div>
 		<!--  -->
 		<form action="sellmid.jsp" method="post">
 			<button type="submit" name="">我的清單</button>
@@ -86,12 +89,12 @@
 				</tr>
 				<c:forEach var="table" items="${rs.rows}">
 					<tr>
-						<th><button type="submit" value="${table.BK_ID}"
+						<th><button type="submit" value="${table.bk_ID}"
 								name="selectbk">檢視</button></th>
-						<td><img alt="XX" src="<c:out value="${table.BK_Pic}"/>"
+						<td><img alt="XX" src="<c:out value="${table.bk_Pic}"/>"
 							width="50px" height="50px"></td>
-						<td><c:out value="${table.BK_Name}" /></td>
-						<td><c:out value="${table.BK_Writer}" /></td>
+						<td><c:out value="${table.bk_Name}" /></td>
+						<td><c:out value="${table.bk_Author}" /></td>
 					</tr>
 				</c:forEach>
 			</table>

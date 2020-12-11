@@ -75,7 +75,7 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 				<form action=".\qaqmid.jsp">
 					<button type="submit"  class="btn btn-link text-muted">二手書交易系統</button>
 				</form>
-				<form action=".\index.jsp">
+				<form action=".\ActHomepage.jsp">
 					<button type="submit"  class="btn btn-link text-muted">共讀趣／閱讀沙龍</button>
 				</form>
 				<form action=".\mainpage.jsp">

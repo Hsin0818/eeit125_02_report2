@@ -57,27 +57,27 @@ request.setCharacterEncoding("UTF-8");
 			</nav>
 		</div>
 		<!-- -->
-		<jsp:useBean id="mid" class="shopping.BookData" scope="session" />
+		<jsp:useBean id="mid" class="model.BookBean" scope="session" />
 		<form method="POST">
 			<div>
 				<label for="url"></label> <img alt="xx" width="200px" height="300px"
-					src="<jsp:getProperty name="mid" property="BK_Pic" />">
+					src="<jsp:getProperty name="mid" property="bk_Pic" />">
 			</div>
 			<div>
-				<label for="BK_Name">書名</label>
-				<jsp:getProperty name="mid" property="BK_Name" />
+				<label for="bk_Name">書名</label>
+				<jsp:getProperty name="mid" property="bk_Name" />
 			</div>
 			<div>
-				<label for="BK_Writer">作者</label>
-				<jsp:getProperty name="mid" property="BK_Writer" />
+				<label for="bk_Author">作者</label>
+				<jsp:getProperty name="mid" property="bk_Author" />
 			</div>
 			<div>
-				<label for="BK_Publish">出版社</label>
-				<jsp:getProperty name="mid" property="BK_Publish" />
+				<label for="bk_Publish">出版社</label>
+				<jsp:getProperty name="mid" property="bk_Publish" />
 			</div>
 			<div>
-				<label for="BK_Content">描述: </label>
-				<jsp:getProperty name="mid" property="BK_Content" />
+				<label for="bk_Content">描述: </label>
+				<jsp:getProperty name="mid" property="bk_Content" />
 			</div>
 
 			<div>

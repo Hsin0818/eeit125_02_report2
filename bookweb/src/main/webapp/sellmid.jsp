@@ -2,9 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<sql:setDataSource var="db" dataSource="jdbc/BookDB" />
+<sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+     url="jdbc:sqlserver://eeit125g2.ddns.net:1433;DatabaseName=BookDB"  
+     user="book"  password="qaq"/>  
 <sql:query
-	sql="select b.BKS_ID as bkid, a.BK_Name as bkname, a.BK_Writer as bkwriter, a.BK_Publish as bkpulish, b.BS_price as bkprice, b.BS_Num as bknum from BOOK a, BOOK_STORE b where a.BK_ID = b.BK_ID"
+	sql="select b.BKS_ID as bkid, a.bk_Name as bkname, a.bk_Author as bkwriter, a.bk_Publish as bkpulish, b.BS_price as bkprice, b.BS_Num as bknum from BooK a, BOOK_STORE b where a.bk_ID = b.BK_ID"
 	dataSource="${db}" var="rs" />
 <!DOCTYPE html>
 <html>

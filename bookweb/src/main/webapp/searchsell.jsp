@@ -3,10 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ page import="java.util.List"%>
-<%@ page import="shopping.BookData"%>
-<sql:setDataSource var="db" dataSource="jdbc/BookDB" />
+<%@ page import="model.BookBean"%>
+<sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+     url="jdbc:sqlserver://eeit125g2.ddns.net:1433;DatabaseName=BookDB"  
+     user="book"  password="qaq"/>  
 <sql:query
-	sql="select b.BKS_ID as bkid, a.BK_Name as bkname, a.BK_Writer as bkwriter, a.BK_Publish as bkpublish, b.BS_price as bkprice, b.BS_Num as bknum from BOOK a, BOOK_STORE b where a.BK_ID = b.BK_ID"
+	sql="select b.BKS_ID as bkid, a.bk_Name as bkname, a.bk_Author as bkwriter, a.bk_Publish as bkpublish, b.BS_price as bkprice, b.BS_Num as bknum from book a, BOOK_STORE b where a.bk_ID = b.BK_ID"
 	dataSource="${db}" var="rs" />
 <!DOCTYPE html>
 <html>
@@ -74,16 +76,16 @@
 			if (request.getParameter("searchbk") != null) {
 		%>
 		<p>
-			<%!List<BookData> list;%>
-			<%!BookData data;%>
+			<%!List<BookBean> list;%>
+			<%!BookBean data;%>
 			<%
-				data = new BookData();
+				data = new BookBean();
 			list = (List) request.getSession(true).getAttribute("qaqget");
 			%>
 		
 		<form action="./BookServlet1" method="post">
 			<%
-				for (BookData data : list) {
+				for (BookBean data : list) {
 			%>
 			<table border="2" width="50%">
 				<tr>
@@ -96,13 +98,13 @@
 					<th>&nbsp;</th>
 				</tr>
 				<tr>
-					<td><%=data.getBK_ID()%></td>
-					<td><%=data.getBK_Name()%></td>
-					<td><%=data.getBK_Writer()%></td>
-					<td><%=data.getBK_Publish()%></td>
-					<td><INPUT TYPE="TEXT" NAME="<%=data.getBK_ID()%>price"></td>
-					<td><INPUT TYPE="TEXT" NAME="<%=data.getBK_ID()%>qty"></td>
-					<td><button type="submit" value=<%=data.getBK_ID()%>
+					<td><%=data.getBk_ID()%></td>
+					<td><%=data.getBk_Name()%></td>
+					<td><%=data.getBk_Author()%></td>
+					<td><%=data.getBk_Publish()%></td>
+					<td><INPUT TYPE="TEXT" NAME="<%=data.getBk_ID()%>price"></td>
+					<td><INPUT TYPE="TEXT" NAME="<%=data.getBk_ID()%>qty"></td>
+					<td><button type="submit" value=<%=data.getBk_ID()%>
 							name="setbk">刊登</button></td>
 				</tr>
 			</table>

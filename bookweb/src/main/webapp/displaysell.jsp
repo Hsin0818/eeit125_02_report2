@@ -77,11 +77,11 @@ response.setContentType("text/html;charset=UTF-8");
 <!-- 	if(request.getParameter("insertbk")==null){ -->
 <!-- 	%> -->
 	<FORM action="./BookServlet1" method="post">
-	<jsp:useBean id="top" class="shopping.BookData" scope="session" />
-		<input type="hidden" name="BK_ID" value=<jsp:getProperty name="top" property="BK_ID" />><jsp:getProperty name="top" property="BK_ID" /><BR> 
-		<jsp:getProperty name="top" property="BK_Name" /><BR> 
-		<jsp:getProperty name="top" property="BK_Writer" /><BR> 
-		<jsp:getProperty name="top" property="BK_Publish" /><BR> 
+	<jsp:useBean id="top" class="model.BookBean" scope="session" />
+		<input type="hidden" name="BK_ID" value=<jsp:getProperty name="top" property="bk_ID" />><jsp:getProperty name="top" property="bk_ID" /><BR> 
+		<jsp:getProperty name="top" property="bk_Name" /><BR> 
+		<jsp:getProperty name="top" property="bk_Author" /><BR> 
+		<jsp:getProperty name="top" property="bk_Publish" /><BR> 
 		價錢 : <INPUT TYPE="TEXT" NAME="price" value=0><BR>
 		數量 : <INPUT TYPE="TEXT" NAME="qty" value=0><BR>
 		<button type="submit" name="updatebk">確定修改</button>

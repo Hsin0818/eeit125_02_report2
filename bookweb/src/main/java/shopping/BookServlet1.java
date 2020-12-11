@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.BookBean;
 //import javax.sql.DataSource;
 
 /**
@@ -68,7 +70,7 @@ public class BookServlet1 extends HttpServlet {
 			System.out.println("qaq");
 			if (request.getParameter("selectbk") != null) {
 				// 改變
-				BookData data = bookDAO.selectBookID(Integer.parseInt(request.getParameter("selectbk")));
+				BookBean data = bookDAO.selectBookID(Integer.parseInt(request.getParameter("selectbk")));
 				request.getSession(true).setAttribute("mid", data);
 				request.getRequestDispatcher("/single.jsp").forward(request, response);
 				// 改變
@@ -86,7 +88,7 @@ public class BookServlet1 extends HttpServlet {
 				// 改變
 			} else if (request.getParameter("waitupbk") != null) {
 				// 改變
-				BookData data = bookDAO.selectBookID(Integer.parseInt(request.getParameter("waitupbk")));
+				BookBean data = bookDAO.selectBookID(Integer.parseInt(request.getParameter("waitupbk")));
 				request.getSession(true).setAttribute("top", data);
 				request.getRequestDispatcher("/displaysell.jsp").forward(request, response);
 //				conn = ds.getConnection();
@@ -129,7 +131,7 @@ public class BookServlet1 extends HttpServlet {
 			} else if (request.getParameter("searchbk") != null) {
 				// 改變
 				
-				List<BookData> list = bookDAO.listBookData(request.getParameter("searchbk"));
+				List<BookBean> list = bookDAO.listBookData(request.getParameter("searchbk"));
 				request.getSession(true).setAttribute("qaqget", list);
 				request.getRequestDispatcher("/searchsell.jsp").forward(request, response);
 //				searchbK(request, response);
